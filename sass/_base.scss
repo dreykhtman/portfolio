@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  // scroll-behavior: smooth;
+
+  // @include responsive(bp1500) {
+  //   font-size: 56.25%;
+  // }
+
+  // @include responsive(bp1300) {
+  //   font-size: 50%;
+  // }
+}
+
+body {
+  box-sizing: border-box;
+}
