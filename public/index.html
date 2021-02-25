@@ -8,10 +8,11 @@
     <script defer src="../js/script.js"></script>
   </head>
   <body>
-    <div class="container">
+    <div id="parent" class="container">
       <div class="container__empty"></div>
-      <div class="container__projects">
-        <div class="my-project"></div>
+      <div id="list-parent" class="container__projects">
+        <div id="to" class="my-project"></div>
+
         <div class="course-project"></div>
         <div class="course-project"></div>
         <div class="course-project"></div>
@@ -19,8 +20,41 @@
         <div class="course-project"></div>
         <div class="course-project"></div>
       </div>
-    </div>
 
-    <div class="about"></div>
+      <div class="about">
+        <div id="about-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <defs>
+              <marker
+                id="arrowhead"
+                viewBox="0 0 10 10"
+                refX="3"
+                refY="5"
+                markerWidth="6"
+                markerHeight="6"
+                orient="auto"
+                fill="yellow"
+              >
+                <path d="M 0 0 L 10 5 L 0 10 z" />
+              </marker>
+            </defs>
+            <g
+              fill="none"
+              stroke="yellow"
+              stroke-width="2"
+              marker-end="url(#arrowhead)"
+            >
+              <path id="svg-from" />
+              <path id="svg-to" />
+            </g>
+          </svg>
+          <p id="text">
+            This navbar uses the
+            <span id="from">Intersection Observer API</span> to highlight the
+            section currently in the view
+          </p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

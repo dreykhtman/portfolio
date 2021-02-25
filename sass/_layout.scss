@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: flex;
   // width: 100vw;
   // flex-direction: row-reverse;
@@ -18,6 +19,7 @@
     // height: 100vh;
     width: 55vw;
     background-color: slateblue;
+    padding-top: 10vh;
   }
 }
 
@@ -28,6 +30,14 @@
   top: 15vh;
   left: 5vw;
   background-color: rgb(233, 183, 18);
+  padding: 20rem;
+  font-size: 2.2rem;
+  font-family: sans-serif;
+  color: darkslategrey;
+}
+
+#about-inner {
+  position: relative;
 }
 
 .my-project {
@@ -41,10 +51,37 @@
 
 .course-project {
   margin: auto;
-
   height: 450px;
   width: 20vw;
   border: 4px solid salmon;
   margin-top: 5vh;
   margin-bottom: 5vh;
+}
+
+#list-parent {
+  overflow: auto;
+  position: relative;
+  border: 5px solid black;
+}
+
+#navbar-to {
+  position: relative;
+}
+
+svg {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#svg-from {
+  position: relative;
+  z-index: 150;
+}
+#text {
+  position: relative;
+  z-index: 200;
 }
