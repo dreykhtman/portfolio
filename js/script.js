@@ -1,4 +1,4 @@
-console.log('script.js is 😃 connected...');
+console.log('script.js is connected...');
 
 const from = document.getElementById('from');
 const to = document.getElementById('to');
@@ -13,7 +13,7 @@ svgFrom.setAttribute(
   }`
 );
 
-document.addEventListener('scroll', function () {
+document.addEventListener('scroll', () => {
   svgFrom.setAttribute(
     'd',
     `M ${from.getBoundingClientRect().x} ${
@@ -24,12 +24,12 @@ document.addEventListener('scroll', function () {
   );
 });
 
-window.addEventListener('resize', function () {
+window.addEventListener('resize', () => {
   svgFrom.setAttribute(
     'd',
     `M ${from.getBoundingClientRect().x} ${
       from.getBoundingClientRect().y
-    } C 0 200, 400 -200 ${to.getBoundingClientRect().x + 80} ${
+    } C 400 700, 800 500, ${to.getBoundingClientRect().x + 80} ${
       to.getBoundingClientRect().bottom - 60
     }`
   );

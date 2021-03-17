@@ -9,20 +9,23 @@
   </head>
   <body>
     <div class="container">
-      <div class="container__empty"></div>
-      <div id="list-parent" class="container__screenshots">
-        <div id="to" class="my-project"></div>
-
-        <div class="course-project"></div>
-        <div class="course-project"></div>
-        <div class="course-project"></div>
-        <div class="course-project"></div>
-        <div class="course-project"></div>
-        <div class="course-project"></div>
+      <div class="container__about">
+        <h1>ABOUT</h1>
       </div>
+      <!-- <div class="container__empty"></div> -->
 
-      <div class="container__descriptions">
-        <div id="about-inner">
+      <div class="container__projects">
+        <div class="screenshots">
+          <div id="to" class="my-project"></div>
+          <div class="course-project"></div>
+          <div class="course-project"></div>
+          <div class="course-project"></div>
+          <div class="course-project"></div>
+          <div class="course-project"></div>
+          <div class="course-project"></div>
+        </div>
+
+        <div class="descriptions">
           <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
             <defs>
               <marker
@@ -48,12 +51,18 @@
               <path id="svg-to" />
             </g>
           </svg>
-          <p id="text">
-            This navbar uses the 😃
-            <span id="from">Intersection Observer API</span> to highlight the
-            section currently in the view
-          </p>
+          <div id="about-inner">
+            <p id="text">
+              This navbar uses the 😃
+              <span id="from">Intersection Observer API</span> to highlight the
+              section currently in the view
+            </p>
+          </div>
         </div>
+      </div>
+
+      <div class="container__footer">
+        <h1>FOOTER</h1>
       </div>
     </div>
   </body>

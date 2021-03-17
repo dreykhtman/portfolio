@@ -12,69 +12,53 @@ body {
   box-sizing: border-box; }
 
 .container {
-  position: relative;
-  display: flex; }
-  .container__empty {
-    width: 45vw;
-    background-color: salmon; }
-  .container__screenshots {
+  width: 100vw; }
+  .container__about {
+    height: 100vh;
+    background-color: darkslateblue; }
+  .container__projects {
+    height: 400vh;
+    background-color: salmon;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 55vw;
-    background-color: slateblue;
-    padding-top: 10vh; }
-  .container__descriptions {
-    position: fixed;
-    height: 70vh;
-    width: 35vw;
-    top: 15vh;
-    left: 5vw;
-    background-color: #e9b712;
-    padding: 20rem;
-    font-size: 2.2rem;
-    font-family: sans-serif;
-    color: darkslategrey; }
+    flex-direction: row-reverse; }
+  .container__footer {
+    height: 100vh;
+    background-color: #e9a745; }
+
+.descriptions {
+  height: 100vh;
+  width: 40vw;
+  position: sticky;
+  top: 0;
+  background-color: #e9b712;
+  padding: 20rem;
+  font-size: 2.2rem;
+  font-family: sans-serif;
+  color: darkslategrey; }
+
+.screenshots {
+  position: relative;
+  width: 60vw; }
 
 #about-inner {
   position: relative; }
 
 .my-project {
+  position: relative;
   margin: auto;
   height: 450px;
   width: 47.25vw;
-  border: 4px solid salmon;
+  border: 4px solid violet;
   margin-top: 40vh;
-  margin-bottom: 5vh; }
-
-.course-project {
-  margin: auto;
-  height: 450px;
-  width: 20vw;
-  border: 4px solid salmon;
-  margin-top: 5vh;
-  margin-bottom: 5vh; }
-
-#list-parent {
-  overflow: auto;
-  position: relative;
-  border: 5px solid black; }
-
-#navbar-to {
-  position: relative; }
+  margin-bottom: 5vh;
+  background-color: #067296; }
 
 svg {
   z-index: 1;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; }
-
-#svg-from {
-  position: relative;
-  z-index: 150; }
+  left: 0; }
 
 #text {
   position: relative;
-  z-index: 200; }
+  z-index: 10; }
