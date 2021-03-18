@@ -10,23 +10,12 @@
   <body>
     <div class="container">
       <div class="container__about">
-        <h1>ABOUT</h1>
+        <!-- <h1>ABOUT</h1> -->
       </div>
-      <!-- <div class="container__empty"></div> -->
 
       <div class="container__projects">
-        <div class="screenshots">
-          <div id="to" class="my-project"></div>
-          <div class="course-project"></div>
-          <div class="course-project"></div>
-          <div class="course-project"></div>
-          <div class="course-project"></div>
-          <div class="course-project"></div>
-          <div class="course-project"></div>
-        </div>
-
         <div class="descriptions">
-          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <svg xmlns="http://www.w3.org/2000/svg">
             <defs>
               <marker
                 id="arrowhead"
@@ -51,13 +40,39 @@
               <path id="svg-to" />
             </g>
           </svg>
-          <div id="about-inner">
-            <p id="text">
+          <div class="descriptions__text">
+            <p id="description-cotillion">
               This navbar uses the 😃
-              <span id="from">Intersection Observer API</span> to highlight the
-              section currently in the view
+              <span id="cotillion-from">Intersection Observer API</span> to
+              highlight the section currently in the view
+            </p>
+            <p class="description-portfolio">
+              Here I'm using
+              <span id="portfolio-from">dynamic SVG arrows</span> that alwasy
+              point form point A to point B
             </p>
           </div>
+        </div>
+
+        <div class="screenshots">
+          <img
+            id="to"
+            class="my-project"
+            src="/public/img/cotillion.jpg"
+            alt="cotillion.band screenshot"
+          />
+          <img
+            class="my-project"
+            src="/public/img/portfolio.jpg"
+            alt="Portfolio screenshot"
+          />
+          <!-- <div id="to"></div> -->
+          <div class="course-project"></div>
+          <div class="course-project"></div>
+          <div class="course-project"></div>
+          <div class="course-project"></div>
+          <div class="course-project"></div>
+          <div class="course-project"></div>
         </div>
       </div>
 
