@@ -20,6 +20,7 @@ svg {
   width: 100%; }
 
 .container__about {
+  height: 95vh;
   background-color: darkslateblue; }
 
 .container__projects {
@@ -49,7 +50,16 @@ svg {
   flex-direction: column;
   align-items: center; }
   .screenshots > img {
-    width: 80%; }
+    width: 80%;
+    border: 1px solid black;
+    padding: 20rem 0 20rem 0;
+    margin-bottom: 1px; }
 
-.my-project {
-  margin: 20rem 0 5rem 0; }
+.back-color {
+  background-color: firebrick; }
+
+.fixed {
+  position: fixed;
+  top: 50%;
+  width: 100vw;
+  border: 0.1px solid white; }

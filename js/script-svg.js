@@ -1,4 +1,4 @@
-console.log('script.js is connected...');
+console.log('SVG script is running...');
 
 const from = document.getElementById('cotillion-from');
 const to = document.getElementById('to');
