@@ -1,6 +1,15 @@
 console.log('Intersection Observer script is running...');
 
-const projects = document.querySelectorAll('.project');
+const screenshots = document.querySelectorAll('.screenshot');
+const descriptions = document.querySelectorAll('.description');
+
+const descriptionList = {};
+
+descriptions.forEach((description) => {
+  descriptionList[description.id] = description;
+});
+
+console.log(descriptionList);
 
 const options = {
   root: null,
@@ -8,12 +17,19 @@ const options = {
   threshold: 0,
 };
 
+console.log(descriptionList);
+
 const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
+      descriptionList[
+        `description-${entry.target.id.substring(11)}`
+      ].classList.add('hidden');
       entry.target.classList.add('back-color');
-      // console.log(entry.target.alt, 'intersecting');
     } else {
+      descriptionList[
+        `description-${entry.target.id.substring(11)}`
+      ].classList.remove('hidden');
       entry.target.classList.remove('back-color');
     }
   });
@@ -21,6 +37,6 @@ const observerCallback = (entries, observer) => {
 
 const observer = new IntersectionObserver(observerCallback, options);
 
-projects.forEach((project) => {
-  observer.observe(project);
+screenshots.forEach((screenshot) => {
+  observer.observe(screenshot);
 });

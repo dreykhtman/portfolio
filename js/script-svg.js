@@ -1,7 +1,7 @@
 console.log('SVG script is running...');
 
 const from = document.getElementById('cotillion-from');
-const to = document.getElementById('to');
+const to = document.getElementById('screenshot-cotillion');
 const svgFrom = document.getElementById('svg-from');
 
 svgFrom.setAttribute(

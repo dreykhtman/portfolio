@@ -20,7 +20,6 @@ svg {
   width: 100%; }
 
 .container__about {
-  height: 95vh;
   background-color: darkslateblue; }
 
 .container__projects {
@@ -34,6 +33,7 @@ svg {
 
 .descriptions {
   height: 100vh;
+  width: 50vw;
   position: sticky;
   top: 0;
   background-color: #e9b712;
@@ -50,16 +50,19 @@ svg {
   flex-direction: column;
   align-items: center; }
   .screenshots > img {
-    width: 80%;
+    width: 95%;
     border: 1px solid black;
-    padding: 20rem 0 20rem 0;
+    padding: 10vh 0 10vh 0;
     margin-bottom: 1px; }
 
 .back-color {
   background-color: firebrick; }
 
-.fixed {
-  position: fixed;
-  top: 50%;
-  width: 100vw;
-  border: 0.1px solid white; }
+.description {
+  height: 0;
+  opacity: 0;
+  transition: visibility 0.4s, opacity 0.4s; }
+
+.hidden {
+  opacity: 1;
+  transition: visibility 0.4s, opacity 0.4s; }
