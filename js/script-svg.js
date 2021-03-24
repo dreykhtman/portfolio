@@ -28,3 +28,4 @@ window.addEventListener('resize', () => {
 });
 
 // 1. get
+console.log('hello');
