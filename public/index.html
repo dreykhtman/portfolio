@@ -17,31 +17,6 @@
       <div class="container__projects">
         <div class="descriptions">
           <div class="description" id="description-cotillion">
-            <svg xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <marker
-                  id="arrowhead"
-                  viewBox="0 0 10 10"
-                  refX="3"
-                  refY="5"
-                  markerWidth="6"
-                  markerHeight="6"
-                  orient="auto"
-                  fill="yellow"
-                >
-                  <path d="M 0 0 L 10 5 L 0 10 z" />
-                </marker>
-              </defs>
-              <g
-                fill="none"
-                stroke="yellow"
-                stroke-width="2"
-                marker-end="url(#arrowhead)"
-              >
-                <path id="svg-from" />
-                <path id="svg-to" />
-              </g>
-            </svg>
             <p>
               This navbar uses the
               <span id="cotillion-from">Intersection Observer API</span> to
@@ -49,28 +24,54 @@
             </p>
           </div>
 
-          <div class="descriptions__text">
-            <p class="description" id="description-portfolio">
+          <div class="description" id="description-portfolio">
+            <p>
               Here I'm using
               <span id="portfolio-from">dynamic SVG arrows</span> that alwasy
               point form point A to point B
             </p>
           </div>
+
+          <svg xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker
+                id="arrowhead"
+                viewBox="0 0 10 10"
+                refX="3"
+                refY="5"
+                markerWidth="6"
+                markerHeight="6"
+                orient="auto"
+                fill="yellow"
+              >
+                <path d="M 0 0 L 10 5 L 0 10 z" />
+              </marker>
+            </defs>
+            <g
+              fill="none"
+              stroke="yellow"
+              stroke-width="2"
+              marker-end="url(#arrowhead)"
+            >
+              <path id="svg-cotillion-nav" />
+              <path id="svg-cotillion-sticky" />
+              <!-- <path id="svg-to" /> -->
+            </g>
+          </svg>
         </div>
 
         <div class="screenshots">
-          <img
-            id="screenshot-cotillion"
-            class="screenshot my-screenshot"
-            src="/public/img/cotillion.jpg"
-            alt="cotillion.band screenshot"
-          />
-          <img
-            id="screenshot-portfolio"
-            class="screenshot my-screenshot"
-            src="/public/img/portfolio.jpg"
-            alt="Portfolio screenshot"
-          />
+          <div id="screenshot-cotillion" class="screenshot my-screenshot">
+            <img
+              src="/public/img/cotillion.jpg"
+              alt="cotillion.band screenshot"
+            />
+          </div>
+
+          <div id="screenshot-portfolio" class="screenshot my-screenshot">
+            <img src="/public/img/portfolio.jpg" alt="Portfolio screenshot" />
+          </div>
+
           <!-- <div id="to"></div> -->
           <div class="course-screenshot"></div>
           <div class="course-screenshot"></div>

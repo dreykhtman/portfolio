@@ -1,36 +1,30 @@
-console.log('SVG script is running...');
-
 const from = document.getElementById('cotillion-from');
 const to = document.getElementById('screenshot-cotillion');
-const svgFrom = document.getElementById('svg-from');
+const svgCotillionNav = document.getElementById('svg-cotillion-nav');
+const svgCotillionSticky = document.getElementById('svg-cotillion-sticky');
 
-svgFrom.setAttribute(
-  'd',
-  `M ${from.getBoundingClientRect().x} ${
-    from.getBoundingClientRect().y
-  } C 400 900, 1200 900 ${to.getBoundingClientRect().x + 80} ${
-    to.getBoundingClientRect().bottom - 60
-  }`
-);
+const setAttr = () => {
+  svgCotillionNav.setAttribute(
+    'd',
+    `M ${
+      (from.getBoundingClientRect().left + from.getBoundingClientRect().right) /
+      2
+    } ${from.getBoundingClientRect().bottom} C 400 900, 1200 900 ${
+      to.getBoundingClientRect().x
+    } ${to.getBoundingClientRect().bottom}`
+  );
+};
+
+setAttr();
 
 document.addEventListener('scroll', () => {
-  svgFrom.setAttribute(
-    'd',
-    `M ${from.getBoundingClientRect().x} ${
-      from.getBoundingClientRect().y
-    } C 400 900, 1200 900, ${to.getBoundingClientRect().x + 80} ${
-      to.getBoundingClientRect().bottom - 60
-    }`
-  );
+  console.log(to.getBoundingClientRect());
+
+  setAttr();
 });
 
 window.addEventListener('resize', () => {
-  svgFrom.setAttribute(
-    'd',
-    `M ${from.getBoundingClientRect().x} ${
-      from.getBoundingClientRect().y
-    } C 400 900, 1200 900, ${to.getBoundingClientRect().x + 80} ${
-      to.getBoundingClientRect().bottom - 60
-    }`
-  );
+  setAttr();
 });
+
+// 1. get

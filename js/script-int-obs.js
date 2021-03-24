@@ -1,5 +1,3 @@
-console.log('Intersection Observer script is running...');
-
 const screenshots = document.querySelectorAll('.screenshot');
 const descriptions = document.querySelectorAll('.description');
 
@@ -9,15 +7,11 @@ descriptions.forEach((description) => {
   descriptionList[description.id] = description;
 });
 
-console.log(descriptionList);
-
 const options = {
   root: null,
   rootMargin: '-50% 0% -50% 0%',
   threshold: 0,
 };
-
-console.log(descriptionList);
 
 const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {

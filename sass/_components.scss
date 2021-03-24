@@ -19,28 +19,20 @@
 .screenshots {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  // position: relative;
-  // width: 60vw;
+}
+
+.screenshot {
+  display: flex;
+  justify-content: center;
+  padding: 10vh 0 10vh 0;
+  border: 1px solid black;
+  margin-bottom: 2px;
 
   & > img {
     width: 95%;
     // height: auto;
-    border: 1px solid black;
-    padding: 10vh 0 10vh 0;
-    margin-bottom: 1px;
+    border: 1px solid salmon;
   }
-}
-
-.my-project {
-  //   position: relative;
-  //   margin: auto;
-  //   height: 450px;
-  //   width: 30vw;
-  //   border: 4px solid violet;
-  //   margin-top: 40vh;
-  //   margin-bottom: 5vh;
-  //   background-color: rgb(6, 114, 150);
 }
 
 .back-color {
@@ -48,14 +40,22 @@
 }
 
 .description {
-  // visibility: hidden;
-  height: 0;
   opacity: 0;
+  height: 0;
   transition: visibility 0.4s, opacity 0.4s;
+
+  & > p {
+    position: relative;
+    z-index: 2;
+  }
 }
 
 .hidden {
-  // visibility: visible;
   opacity: 1;
   transition: visibility 0.4s, opacity 0.4s;
+}
+
+#cotillion-from {
+  border-bottom: 2px dashed yellow;
+  display: inline-block;
 }
