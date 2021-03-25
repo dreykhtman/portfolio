@@ -1,11 +1,24 @@
+'use strict';
+
 const screenshots = document.querySelectorAll('.screenshot');
 const descriptions = document.querySelectorAll('.description');
+// const arrows = document.querySelectorAll('.arrow');
+
+// arrows.forEach((arrow) => {
+//   console.log(arrow.id);
+// });
 
 const descriptionList = {};
 
 descriptions.forEach((description) => {
-  descriptionList[description.id] = description;
+  const arrows = document.querySelectorAll(
+    `.arrow-${description.id.substring(12)}`
+  );
+
+  descriptionList[description.id] = [description, ...arrows];
 });
+
+console.log(descriptionList);
 
 const options = {
   root: null,
@@ -16,15 +29,17 @@ const options = {
 const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      descriptionList[
-        `description-${entry.target.id.substring(11)}`
-      ].classList.add('hidden');
-      entry.target.classList.add('back-color');
+      descriptionList[`description-${entry.target.id.substring(11)}`].forEach(
+        (description) => {
+          description.classList.add('hidden');
+        }
+      );
     } else {
-      descriptionList[
-        `description-${entry.target.id.substring(11)}`
-      ].classList.remove('hidden');
-      entry.target.classList.remove('back-color');
+      descriptionList[`description-${entry.target.id.substring(11)}`].forEach(
+        (description) => {
+          description.classList.remove('hidden');
+        }
+      );
     }
   });
 };

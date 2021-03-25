@@ -54,20 +54,20 @@ svg {
   display: flex;
   justify-content: center;
   padding: 10vh 0 10vh 0;
-  border: 1px solid black;
   margin-bottom: 2px; }
   .screenshot > img {
-    width: 95%;
-    border: 1px solid salmon; }
+    width: 95%; }
 
 .back-color {
   background-color: firebrick; }
 
-.description {
+.description,
+.arrow {
   opacity: 0;
   height: 0;
   transition: visibility 0.4s, opacity 0.4s; }
-  .description > p {
+  .description > p,
+  .arrow > p {
     position: relative;
     z-index: 2; }
 
@@ -75,6 +75,6 @@ svg {
   opacity: 1;
   transition: visibility 0.4s, opacity 0.4s; }
 
-#cotillion-from {
+span {
   border-bottom: 2px dashed yellow;
   display: inline-block; }
