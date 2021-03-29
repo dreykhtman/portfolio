@@ -18,8 +18,6 @@ descriptions.forEach((description) => {
   descriptionList[description.id] = [description, ...arrows];
 });
 
-console.log(descriptionList);
-
 const options = {
   root: null,
   rootMargin: '-50% 0% -50% 0%',

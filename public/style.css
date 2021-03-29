@@ -20,7 +20,6 @@ svg {
   width: 100%; }
 
 .container__about {
-  height: 95vh;
   background-color: darkslateblue; }
 
 .container__projects {
@@ -53,7 +52,7 @@ svg {
 .screenshot {
   display: flex;
   justify-content: center;
-  padding: 10vh 0 10vh 0;
+  padding: 10vh 0 30vh 0;
   margin-bottom: 2px; }
   .screenshot > img {
     width: 95%; }
@@ -76,5 +75,5 @@ svg {
   transition: visibility 0.4s, opacity 0.4s; }
 
 span {
-  border-bottom: 2px dashed yellow;
+  border-bottom: 2px solid yellow;
   display: inline-block; }

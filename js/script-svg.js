@@ -1,8 +1,16 @@
+// spans from which arrows start
 const ioFrom = document.getElementById('description-cotillion-io-from');
 const playerFrom = document.getElementById('description-cotillion-player-from');
-const to = document.getElementById('screenshot-cotillion');
+const svgFrom = document.getElementById('description-portfolio-svg-from');
+
+// screenshots where arrows point
+const screenshotCotillion = document.getElementById('screenshot-cotillion');
+const screenshotPortfolio = document.getElementById('screenshot-portfolio');
+
+// svg arrows (<path> elements)
 const svgCotillionNav = document.getElementById('svg-cotillion-nav');
 const svgCotillionSticky = document.getElementById('svg-cotillion-sticky');
+const svgPortfolioSvg = document.getElementById('svg-portfolio-svg');
 
 const setAttr = () => {
   svgCotillionNav.setAttribute(
@@ -12,8 +20,8 @@ const setAttr = () => {
         ioFrom.getBoundingClientRect().right) /
       2
     } ${ioFrom.getBoundingClientRect().bottom} C 400 300, 1200 900 ${
-      to.getBoundingClientRect().x
-    } ${to.getBoundingClientRect().bottom}`
+      screenshotCotillion.getBoundingClientRect().x
+    } ${screenshotCotillion.getBoundingClientRect().bottom}`
   );
 
   svgCotillionSticky.setAttribute(
@@ -23,8 +31,19 @@ const setAttr = () => {
         playerFrom.getBoundingClientRect().right) /
       2
     } ${playerFrom.getBoundingClientRect().bottom} C 500 800, 1300 800 ${
-      to.getBoundingClientRect().right
-    } ${to.getBoundingClientRect().bottom}`
+      screenshotCotillion.getBoundingClientRect().right
+    } ${screenshotCotillion.getBoundingClientRect().bottom}`
+  );
+
+  svgPortfolioSvg.setAttribute(
+    'd',
+    `M ${
+      (svgFrom.getBoundingClientRect().left +
+        svgFrom.getBoundingClientRect().right) /
+      2
+    } ${svgFrom.getBoundingClientRect().bottom} C 500 800, 1300 800 ${
+      screenshotPortfolio.getBoundingClientRect().left
+    } ${screenshotPortfolio.getBoundingClientRect().bottom}`
   );
 };
 

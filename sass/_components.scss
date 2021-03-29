@@ -24,7 +24,7 @@
 .screenshot {
   display: flex;
   justify-content: center;
-  padding: 10vh 0 10vh 0;
+  padding: 10vh 0 30vh 0;
   // border: 1px solid black;
   margin-bottom: 2px;
 
@@ -57,6 +57,6 @@
 }
 
 span {
-  border-bottom: 2px dashed yellow;
+  border-bottom: 2px solid yellow;
   display: inline-block;
 }
