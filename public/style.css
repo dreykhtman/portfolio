@@ -49,12 +49,12 @@ svg {
   display: flex;
   flex-direction: column; }
 
-.screenshot {
+.screenshot-container {
   display: flex;
   justify-content: center;
   padding: 10vh 0 30vh 0;
   margin-bottom: 2px; }
-  .screenshot > img {
+  .screenshot-container > img {
     width: 95%; }
 
 .back-color {
