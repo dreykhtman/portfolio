@@ -35,19 +35,24 @@ const options = {
   threshold: 0,
 };
 
+// Each entry is a screenshot container div
 const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
+    // In substring(21), 21 is the length of "screenshot-container-"
     if (entry.isIntersecting) {
-      // In substring(21), 21 is the length of "screenshot-container-"
+      // entry.target.classList.add('back-color');
+
       descriptionList[`description-${entry.target.id.substring(21)}`].forEach(
         (description) => {
-          description.classList.add('hidden', 'back-color');
+          description.classList.add('hidden');
         }
       );
     } else {
+      // entry.target.classList.remove('back-color');
+
       descriptionList[`description-${entry.target.id.substring(21)}`].forEach(
         (description) => {
-          description.classList.remove('hidden', 'back-color');
+          description.classList.remove('hidden');
         }
       );
     }
