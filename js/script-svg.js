@@ -28,17 +28,16 @@ const getP0 = (fromPoint) => {
 
 const getP1P2 = (p0, p3) => {
   const screenHeight = window.innerHeight;
-  const p1verticalOffset = Math.round(screenHeight / 3);
-  const p2offsetRadius = Math.round(screenHeight / 10);
-  const p2offset = Math.round(p2offsetRadius * Math.sin(45));
-
-  console.log(p2offset);
+  const p1YOffset = Math.round(screenHeight / 3);
+  const p2offsetRadius = Math.round(screenHeight / 5);
+  const p2XOffset = Math.round(p2offsetRadius * Math.cos(45));
+  const p2YOffset = Math.round(p2offsetRadius * Math.sin(45));
 
   return {
     p1x: p0.x,
-    p1y: p0.y + p1verticalOffset,
-    p2x: p3.x - p2offset,
-    p2y: p3.y + p2offset,
+    p1y: p0.y + p1YOffset,
+    p2x: p3.x - p2XOffset,
+    p2y: p3.y + p2YOffset,
   };
 };
 
@@ -51,11 +50,11 @@ let intObsStartPoint = getP0(intObsFrom);
 let intObsEndPoint = getP3(screenshotCotillion);
 let intObsMidPoints = getP1P2(intObsStartPoint, intObsEndPoint);
 
-console.log(intObsMidPoints);
+let playerStartPoint = getP0(playerFrom);
+let playerEndPoint = getP3(screenshotCotillion);
+let playerMidPoints = getP1P2(playerStartPoint, playerEndPoint);
 
 const setAttr = () => {
-  let cotillionNavbarCoordinates;
-
   svgCotillionNav.setAttribute(
     'd',
     `M ${intObsStartPoint.x} ${intObsStartPoint.y}, C ${intObsMidPoints.p1x} ${intObsMidPoints.p1y}, ${intObsMidPoints.p2x} ${intObsMidPoints.p2y} ${intObsEndPoint.x} ${intObsEndPoint.y}`
@@ -63,13 +62,11 @@ const setAttr = () => {
 
   svgCotillionSticky.setAttribute(
     'd',
-    `M ${
-      (playerFrom.getBoundingClientRect().left +
-        playerFrom.getBoundingClientRect().right) /
-      2
-    } ${playerFrom.getBoundingClientRect().bottom} C 500 800, 1300 800 ${
-      screenshotCotillion.getBoundingClientRect().right
-    } ${screenshotCotillion.getBoundingClientRect().bottom}`
+    `M ${playerStartPoint.x} ${playerStartPoint.y}, C ${
+      playerMidPoints.p1x * 1.2
+    } ${playerMidPoints.p1y * 1.2}, ${playerMidPoints.p2x * 1.2} ${
+      playerMidPoints.p2y * 1.2
+    } ${screenshotCotillion.getBoundingClientRect().right} ${playerEndPoint.y}`
   );
 
   svgPortfolioSvg.setAttribute(
@@ -84,17 +81,51 @@ const setAttr = () => {
   );
 };
 
+// const setAttr = () => {
+//   svgCotillionNav.setAttribute(
+//     'd',
+//     `M ${intObsStartPoint.x} ${intObsStartPoint.y}, L ${intObsEndPoint.x} ${intObsEndPoint.y}`
+//   );
+
+//   svgCotillionSticky.setAttribute(
+//     'd',
+//     `M ${playerStartPoint.x} ${playerStartPoint.y}, L ${
+//       screenshotCotillion.getBoundingClientRect().right
+//     } ${playerEndPoint.y}`
+//   );
+
+//   svgPortfolioSvg.setAttribute(
+//     'd',
+//     `M ${
+//       (svgFrom.getBoundingClientRect().left +
+//         svgFrom.getBoundingClientRect().right) /
+//       2
+//     } ${svgFrom.getBoundingClientRect().bottom} C 500 800, 1300 800 ${
+//       screenshotPortfolio.getBoundingClientRect().left
+//     } ${screenshotPortfolio.getBoundingClientRect().bottom}`
+//   );
+// };
+
 setAttr();
 
 document.addEventListener('scroll', () => {
   setAttr();
+  intObsStartPoint = getP0(intObsFrom);
   intObsMidPoints = getP1P2(intObsStartPoint, intObsEndPoint);
   intObsEndPoint = getP3(screenshotCotillion);
+
+  playerStartPoint = getP0(playerFrom);
+  playerEndPoint = getP3(screenshotCotillion);
+  playerMidPoints = getP1P2(playerStartPoint, playerEndPoint);
 });
 
 window.addEventListener('resize', () => {
   intObsStartPoint = getP0(intObsFrom);
   intObsMidPoints = getP1P2(intObsStartPoint, intObsEndPoint);
   intObsEndPoint = getP3(screenshotCotillion);
+
+  playerStartPoint = getP0(playerFrom);
+  playerEndPoint = getP3(screenshotCotillion);
+  playerMidPoints = getP1P2(playerStartPoint, playerEndPoint);
   setAttr();
 });

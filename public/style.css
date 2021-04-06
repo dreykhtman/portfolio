@@ -24,7 +24,7 @@ svg {
 
 .container__projects {
   height: 400vh;
-  background-color: #024e6e;
+  background-color: #f8d891;
   display: flex; }
 
 .container__footer {
@@ -36,7 +36,6 @@ svg {
   width: 50vw;
   position: sticky;
   top: 0;
-  background-color: #e9b712;
   padding: 10rem;
   font-size: 2.2rem;
   font-family: sans-serif;
@@ -47,7 +46,8 @@ svg {
 
 .screenshots {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  padding-top: 25vh; }
 
 .screenshot-container {
   display: flex;
@@ -56,9 +56,6 @@ svg {
   margin-bottom: 2px; }
   .screenshot-container > img {
     width: 95%; }
-
-.back-color {
-  background-color: firebrick; }
 
 .description,
 .arrow {
@@ -75,5 +72,5 @@ svg {
   transition: visibility 0.4s, opacity 0.4s; }
 
 span {
-  border-bottom: 2px solid yellow;
+  border-bottom: 2px dotted blue;
   display: inline-block; }

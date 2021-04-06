@@ -4,7 +4,7 @@
   position: sticky;
   top: 0;
 
-  background-color: rgb(233, 183, 18);
+  // background-color: rgb(233, 183, 18);
   padding: 10rem;
   font-size: 2.2rem;
   font-family: sans-serif;
@@ -19,6 +19,7 @@
 .screenshots {
   display: flex;
   flex-direction: column;
+  padding-top: 25vh;
 }
 
 .screenshot-container {
@@ -36,7 +37,7 @@
 }
 
 .back-color {
-  background-color: firebrick;
+  // background-color: firebrick;
 }
 
 .description,
@@ -57,6 +58,6 @@
 }
 
 span {
-  border-bottom: 2px solid yellow;
+  border-bottom: 2px dotted blue;
   display: inline-block;
 }
