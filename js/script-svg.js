@@ -30,8 +30,8 @@ const getP1P2 = (p0, p3) => {
   const screenHeight = window.innerHeight;
   const p1YOffset = Math.round(screenHeight / 3);
   const p2offsetRadius = Math.round(screenHeight / 5);
-  const p2XOffset = Math.round(p2offsetRadius * Math.cos(45));
-  const p2YOffset = Math.round(p2offsetRadius * Math.sin(45));
+  const p2XOffset = Math.round(p2offsetRadius * Math.cos(31));
+  const p2YOffset = Math.round(p2offsetRadius * Math.sin(31));
 
   return {
     p1x: p0.x,
@@ -41,17 +41,25 @@ const getP1P2 = (p0, p3) => {
   };
 };
 
-const getP3 = (toPoint) => ({
-  x: toPoint.getBoundingClientRect().x,
-  y: toPoint.getBoundingClientRect().bottom,
-});
+const getP3 = (toPoint, xRatio, yRatio) => {
+  const rect = toPoint.getBoundingClientRect();
+  const x = (rect.right - rect.left) * xRatio + rect.left;
+  const y = (rect.bottom - rect.top) * yRatio + rect.top;
+
+  return { x, y };
+
+  //   return {
+  //     x: toPoint.getBoundingClientRect().left,
+  //     y: toPoint.getBoundingClientRect().bottom,
+  //  }
+};
 
 let intObsStartPoint = getP0(intObsFrom);
-let intObsEndPoint = getP3(screenshotCotillion);
+let intObsEndPoint = getP3(screenshotCotillion, 0.05, 0.93);
 let intObsMidPoints = getP1P2(intObsStartPoint, intObsEndPoint);
 
 let playerStartPoint = getP0(playerFrom);
-let playerEndPoint = getP3(screenshotCotillion);
+let playerEndPoint = getP3(screenshotCotillion, 0.88, 0.7);
 let playerMidPoints = getP1P2(playerStartPoint, playerEndPoint);
 
 const setAttr = () => {
@@ -62,11 +70,7 @@ const setAttr = () => {
 
   svgCotillionSticky.setAttribute(
     'd',
-    `M ${playerStartPoint.x} ${playerStartPoint.y}, C ${
-      playerMidPoints.p1x * 1.2
-    } ${playerMidPoints.p1y * 1.2}, ${playerMidPoints.p2x * 1.2} ${
-      playerMidPoints.p2y * 1.2
-    } ${screenshotCotillion.getBoundingClientRect().right} ${playerEndPoint.y}`
+    `M ${playerStartPoint.x} ${playerStartPoint.y}, C ${playerMidPoints.p1x} ${playerMidPoints.p1y}, ${playerMidPoints.p2x} ${playerMidPoints.p2y} ${playerEndPoint.x} ${playerEndPoint.y}`
   );
 
   svgPortfolioSvg.setAttribute(
@@ -80,6 +84,8 @@ const setAttr = () => {
     } ${screenshotPortfolio.getBoundingClientRect().bottom}`
   );
 };
+
+// This code is an example of straigt SVG lines instead of Cubic Bezier curves
 
 // const setAttr = () => {
 //   svgCotillionNav.setAttribute(
@@ -112,20 +118,20 @@ document.addEventListener('scroll', () => {
   setAttr();
   intObsStartPoint = getP0(intObsFrom);
   intObsMidPoints = getP1P2(intObsStartPoint, intObsEndPoint);
-  intObsEndPoint = getP3(screenshotCotillion);
+  intObsEndPoint = getP3(screenshotCotillion, 0.05, 0.93);
 
   playerStartPoint = getP0(playerFrom);
-  playerEndPoint = getP3(screenshotCotillion);
+  playerEndPoint = getP3(screenshotCotillion, 0.88, 0.7);
   playerMidPoints = getP1P2(playerStartPoint, playerEndPoint);
 });
 
 window.addEventListener('resize', () => {
   intObsStartPoint = getP0(intObsFrom);
   intObsMidPoints = getP1P2(intObsStartPoint, intObsEndPoint);
-  intObsEndPoint = getP3(screenshotCotillion);
+  intObsEndPoint = getP3(screenshotCotillion, 0.05, 0.93);
 
   playerStartPoint = getP0(playerFrom);
-  playerEndPoint = getP3(screenshotCotillion);
+  playerEndPoint = getP3(screenshotCotillion, 0.88, 0.7);
   playerMidPoints = getP1P2(playerStartPoint, playerEndPoint);
   setAttr();
 });

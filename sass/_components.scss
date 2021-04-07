@@ -4,7 +4,7 @@
   position: sticky;
   top: 0;
 
-  // background-color: rgb(233, 183, 18);
+  background-color: rgb(233, 183, 18);
   padding: 10rem;
   font-size: 2.2rem;
   font-family: sans-serif;
@@ -40,8 +40,7 @@
   // background-color: firebrick;
 }
 
-.description,
-.arrow {
+.description {
   opacity: 0;
   height: 0;
   transition: visibility 0.4s, opacity 0.4s;
@@ -52,12 +51,19 @@
   }
 }
 
-.hidden {
-  opacity: 1;
+.arrow {
+  // visibility: none;
+  opacity: 0;
+  // height: 0;
   transition: visibility 0.4s, opacity 0.4s;
 }
 
+.hidden {
+  opacity: 1;
+  // transition: visibility 0.4s, opacity 0.4s;
+}
+
 span {
-  border-bottom: 2px dotted blue;
+  border-bottom: 2px solid #ff8400;
   display: inline-block;
 }

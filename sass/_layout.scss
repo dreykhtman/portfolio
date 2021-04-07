@@ -1,12 +1,12 @@
 .container {
   &__about {
-    // height: 100vh;
+    height: 100vh;
     background-color: darkslateblue;
   }
 
   &__projects {
     height: 400vh;
-    background-color: rgb(248, 216, 145);
+    background-color: salmon;
     display: flex;
   }
 
