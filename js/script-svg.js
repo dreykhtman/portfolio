@@ -21,8 +21,8 @@ const getP0 = (fromPoint) => {
 
   // return `${(rectangle.left + rectangle.right) / 2} ${rectangle.bottom}`;
   return {
-    x: (rectangle.left + rectangle.right) / 2,
-    y: rectangle.bottom,
+    x: Math.round((rectangle.left + rectangle.right) / 2),
+    y: Math.round(rectangle.bottom),
   };
 };
 
@@ -43,8 +43,8 @@ const getP1P2 = (p0, p3) => {
 
 const getP3 = (toPoint, xRatio, yRatio) => {
   const rect = toPoint.getBoundingClientRect();
-  const x = (rect.right - rect.left) * xRatio + rect.left;
-  const y = (rect.bottom - rect.top) * yRatio + rect.top;
+  const x = Math.round((rect.right - rect.left) * xRatio + rect.left);
+  const y = Math.round((rect.bottom - rect.top) * yRatio + rect.top);
 
   return { x, y };
 
@@ -65,12 +65,12 @@ let playerMidPoints = getP1P2(playerStartPoint, playerEndPoint);
 const setAttr = () => {
   svgCotillionNav.setAttribute(
     'd',
-    `M ${intObsStartPoint.x} ${intObsStartPoint.y}, C ${intObsMidPoints.p1x} ${intObsMidPoints.p1y}, ${intObsMidPoints.p2x} ${intObsMidPoints.p2y} ${intObsEndPoint.x} ${intObsEndPoint.y}`
+    `M ${intObsStartPoint.x} ${intObsStartPoint.y} C ${intObsMidPoints.p1x} ${intObsMidPoints.p1y} ${intObsMidPoints.p2x} ${intObsMidPoints.p2y} ${intObsEndPoint.x} ${intObsEndPoint.y}`
   );
 
   svgCotillionSticky.setAttribute(
     'd',
-    `M ${playerStartPoint.x} ${playerStartPoint.y}, C ${playerMidPoints.p1x} ${playerMidPoints.p1y}, ${playerMidPoints.p2x} ${playerMidPoints.p2y} ${playerEndPoint.x} ${playerEndPoint.y}`
+    `M ${playerStartPoint.x} ${playerStartPoint.y} C ${playerMidPoints.p1x} ${playerMidPoints.p1y} ${playerMidPoints.p2x} ${playerMidPoints.p2y} ${playerEndPoint.x} ${playerEndPoint.y}`
   );
 
   svgPortfolioSvg.setAttribute(
@@ -79,7 +79,7 @@ const setAttr = () => {
       (svgFrom.getBoundingClientRect().left +
         svgFrom.getBoundingClientRect().right) /
       2
-    } ${svgFrom.getBoundingClientRect().bottom} C 500 800, 1300 800 ${
+    } ${svgFrom.getBoundingClientRect().bottom} C 500 800 1300 800 ${
       screenshotPortfolio.getBoundingClientRect().left
     } ${screenshotPortfolio.getBoundingClientRect().bottom}`
   );
