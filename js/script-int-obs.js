@@ -3,30 +3,29 @@ const descriptions = document.querySelectorAll('.description');
 
 const descriptionList = {};
 
-// Create the descriptionList object, where the keys are names of the description IDs ("description-cotillion", "description-portfolio", etc), and the values are arrays of elements to which the class "hidden" is removed or added.
+// Create the descriptionList object, where the keys are names of the description IDs ("description-cotillion", "description-portfolio", etc), and the values are arrays of elements to which the class "visible" is removed or added.
 
 // Simplified example:
 /*
 {
   description-cotillion: [
-    div#description-cotillion.description.hidden,
-    path#svg-cotillion-nav.arrow.arrow-cotillion.hidden,
-    path#svg-cotillion-sticky.arrow.arrow-cotillion.hidden,
+    div#description-cotillion.description,
+    g#arrows-cotillion.arrows
   ],
   description-portfolio: [
     div#description-portfolio.description,
-    path#svg-portfolio-svg.arrow.arrow-portfolio,
+    g#arrows-portfolio.arrows
   ]
 }
 */
 
 descriptions.forEach((description) => {
-  const arrows = document.querySelectorAll(
+  const arrows = document.getElementById(
     // In substring(12), 12 is the length of "description-"
-    `.arrow-${description.id.substring(12)}`
+    `arrows-${description.id.substring(12)}`
   );
 
-  descriptionList[description.id] = [description, ...arrows];
+  descriptionList[description.id] = [description, arrows];
 });
 
 const options = {
@@ -35,7 +34,7 @@ const options = {
   threshold: 0,
 };
 
-// Each entry is a screenshot container div
+// Each entry is the screenshot container div
 const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
     // In substring(21), 21 is the length of "screenshot-container-"
@@ -44,7 +43,7 @@ const observerCallback = (entries, observer) => {
 
       descriptionList[`description-${entry.target.id.substring(21)}`].forEach(
         (description) => {
-          description.classList.add('hidden');
+          description.classList.add('visible');
         }
       );
     } else {
@@ -52,7 +51,7 @@ const observerCallback = (entries, observer) => {
 
       descriptionList[`description-${entry.target.id.substring(21)}`].forEach(
         (description) => {
-          description.classList.remove('hidden');
+          description.classList.remove('visible');
         }
       );
     }

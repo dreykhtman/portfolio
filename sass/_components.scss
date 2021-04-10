@@ -43,7 +43,7 @@
 .description {
   opacity: 0;
   height: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
 
   & > p {
     position: relative;
@@ -51,13 +51,13 @@
   }
 }
 
-.arrow {
+.arrows {
   // visibility: hidden;
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
 }
 
-.hidden {
+.visible {
   // visibility: visible;
   opacity: 1;
   // transition: visibility 0.4s, opacity 0.4s;
