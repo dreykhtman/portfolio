@@ -1,4 +1,4 @@
-// Spans from which the arrows start
+// <span> elements from which the arrows start
 const intObsFrom = document.getElementById('from-cotillion-int-obs');
 const playerFrom = document.getElementById('from-cotillion-player');
 const svgFrom = document.getElementById('from-portfolio-svg');
@@ -17,12 +17,12 @@ const svgPortfolioSvg = document.getElementById('svg-portfolio-svg');
 // P3 - end coordinates
 
 const getP0 = (fromPoint) => {
-  const rectangle = fromPoint.getBoundingClientRect();
+  let { right, left, bottom } = fromPoint.getBoundingClientRect();
+  [right, left, bottom] = [right, left, bottom].map((v) => Math.round(v));
 
-  // return `${(rectangle.left + rectangle.right) / 2} ${rectangle.bottom}`;
   return {
-    x: Math.round((rectangle.left + rectangle.right) / 2),
-    y: Math.round(rectangle.bottom),
+    x: Math.round((left + right) / 2),
+    y: bottom,
   };
 };
 
@@ -30,8 +30,8 @@ const getP1P2 = (p0, p3) => {
   const screenHeight = window.innerHeight;
   const p1YOffset = Math.round(screenHeight / 3);
   const p2offsetRadius = Math.round(screenHeight / 5);
-  const p2XOffset = Math.round(p2offsetRadius * Math.cos(31));
-  const p2YOffset = Math.round(p2offsetRadius * Math.sin(31));
+  const p2XOffset = p2offsetRadius * Math.round(Math.cos(31));
+  const p2YOffset = p2offsetRadius * Math.round(Math.sin(31));
 
   return {
     p1x: p0.x,
@@ -42,9 +42,13 @@ const getP1P2 = (p0, p3) => {
 };
 
 const getP3 = (toPoint, xRatio, yRatio) => {
-  const rect = toPoint.getBoundingClientRect();
-  const x = Math.round((rect.right - rect.left) * xRatio + rect.left);
-  const y = Math.round((rect.bottom - rect.top) * yRatio + rect.top);
+  let { right, left, top, bottom } = toPoint.getBoundingClientRect();
+  [right, left, top, bottom] = [right, left, top, bottom].map((v) =>
+    Math.round(v)
+  );
+
+  const x = Math.round((right - left) * xRatio + left);
+  const y = Math.round((bottom - top) * yRatio + top);
 
   return { x, y };
 

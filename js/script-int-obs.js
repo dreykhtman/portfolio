@@ -39,16 +39,12 @@ const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
     // In substring(21), 21 is the length of "screenshot-container-"
     if (entry.isIntersecting) {
-      // entry.target.classList.add('back-color');
-
       descriptionList[`description-${entry.target.id.substring(21)}`].forEach(
         (description) => {
           description.classList.add('visible');
         }
       );
     } else {
-      // entry.target.classList.remove('back-color');
-
       descriptionList[`description-${entry.target.id.substring(21)}`].forEach(
         (description) => {
           description.classList.remove('visible');

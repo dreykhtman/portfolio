@@ -30,4 +30,7 @@ svg {
   left: 0;
   height: 100%;
   width: 100%;
+
+  // This fixes a weird glitch in Chrome where SVG elements sometimes appear when they aren't supposed to when I scroll to the top of the site.
+  outline: 1px solid transparent;
 }
