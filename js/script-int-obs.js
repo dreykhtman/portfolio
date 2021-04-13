@@ -1,3 +1,4 @@
+// screenshotContainers will be observed by the Intersection Observer
 const screenshotContainers = document.querySelectorAll('.screenshot-container');
 const descriptions = document.querySelectorAll('.description');
 
