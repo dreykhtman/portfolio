@@ -1,16 +1,16 @@
 class Arrow {
   constructor(fromElement, toImage, xRatio, yRatio) {
-    ({ p0x: this.p0x, p0y: this.p0y } = this.getP0(fromElement));
-    ({ p3x: this.p3x, p3y: this.p3y } = this.getP3(toImage, xRatio, yRatio));
+    ({ p0x: this.p0x, p0y: this.p0y } = Arrow.getP0(fromElement));
+    ({ p3x: this.p3x, p3y: this.p3y } = Arrow.getP3(toImage, xRatio, yRatio));
     ({
       p1x: this.p1x,
       p1y: this.p1y,
       p2x: this.p2x,
       p2y: this.p2y,
-    } = this.getP1P2(this.p0x, this.p0y, this.p3x, this.p3y));
+    } = Arrow.getP1P2(this.p0x, this.p0y, this.p3x, this.p3y));
   }
 
-  getP0(fromElement) {
+  static getP0(fromElement) {
     let { right, left, bottom } = fromElement.getBoundingClientRect();
     [right, left, bottom] = [right, left, bottom].map((v) => Math.round(v));
 
@@ -20,7 +20,7 @@ class Arrow {
     };
   }
 
-  getP3(toImage, xRatio, yRatio) {
+  static getP3(toImage, xRatio, yRatio) {
     let { right, left, top, bottom } = toImage.getBoundingClientRect();
     [right, left, top, bottom] = [right, left, top, bottom].map((v) =>
       Math.round(v)
@@ -32,7 +32,7 @@ class Arrow {
     return { p3x, p3y };
   }
 
-  getP1P2(p0x, p0y, p3x, p3y) {
+  static getP1P2(p0x, p0y, p3x, p3y) {
     const screenHeight = window.innerHeight;
     const p1YOffset = Math.round(screenHeight / 3);
     const p2offsetRadius = Math.round(screenHeight / 5);
