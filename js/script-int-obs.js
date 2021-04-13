@@ -35,11 +35,17 @@ const options = {
   threshold: 0,
 };
 
+const timeoutIDs = {};
+
 // Each entry is the screenshot container div
 const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
     // In substring(21), 21 is the length of "screenshot-container-"
     if (entry.isIntersecting) {
+      // timeout = 255;
+      entry.target.children[0].classList.add('active');
+      clearTimeout(timeoutIDs[entry.target.id]);
+
       descriptionList[`description-${entry.target.id.substring(21)}`].forEach(
         (description) => {
           description.classList.add('visible');
@@ -51,6 +57,10 @@ const observerCallback = (entries, observer) => {
           description.classList.remove('visible');
         }
       );
+
+      timeoutIDs[entry.target.id] = setTimeout(() => {
+        entry.target.children[0].classList.remove('active');
+      }, 400);
     }
   });
 };
