@@ -1,4 +1,4 @@
-// <span> elements from which the arrows start
+// <span> elements where the arrows start
 const cotillionNavFrom = document.getElementById('from-cotillion-nav');
 const cotillionPlayerFrom = document.getElementById('from-cotillion-player');
 const cotillionStickyFrom = document.getElementById('from-cotillion-sticky');
@@ -55,28 +55,21 @@ class Arrow {
 
   static getP1P2(p0x, p0y, p3x, p3y) {
     const screenHeight = window.innerHeight;
-    const p1YOffset = Math.round(screenHeight / 3);
-    const p2offsetRadius = Math.round(screenHeight / 5);
-    const p2XOffset = p2offsetRadius * Math.round(Math.cos(31));
-    const p2YOffset = p2offsetRadius * Math.round(Math.sin(31));
+    const p1VerticalOffset = Math.round(screenHeight / 3);
+    const p2OffsetRadius = Math.round(screenHeight / 5);
+    const p2XOffset = p2OffsetRadius * Math.round(Math.cos(31));
+    const p2YOffset = p2OffsetRadius * Math.round(Math.sin(31));
 
     return {
       p1x: p0x,
-      p1y: p0y + p1YOffset,
+      p1y: p0y + p1VerticalOffset,
       p2x: p3x - p2XOffset,
       p2y: p3y + p2YOffset,
     };
   }
 }
 
-const setAttr = () => {
-  const portfolioSvgArrow = new Arrow(
-    portfolioSvgFrom,
-    screenshotPortfolio,
-    0.1,
-    0.2
-  );
-
+const setAttr = async () => {
   if (screenshotCotillion.classList.contains('active')) {
     const cotillionNavArrow = new Arrow(
       cotillionNavFrom,
@@ -116,6 +109,13 @@ const setAttr = () => {
   }
 
   if (screenshotPortfolio.classList.contains('active')) {
+    const portfolioSvgArrow = new Arrow(
+      portfolioSvgFrom,
+      screenshotPortfolio,
+      0.1,
+      0.2
+    );
+
     svgPortfolioSvg.setAttribute(
       'd',
       `M ${portfolioSvgArrow.p0x} ${portfolioSvgArrow.p0y} C ${portfolioSvgArrow.p1x} ${portfolioSvgArrow.p1y} ${portfolioSvgArrow.p2x} ${portfolioSvgArrow.p2y} ${portfolioSvgArrow.p3x} ${portfolioSvgArrow.p3y}`
@@ -123,7 +123,9 @@ const setAttr = () => {
   }
 };
 
-setAttr();
+setTimeout(() => {
+  setAttr();
+}, 100);
 
 document.addEventListener('scroll', () => {
   setAttr();

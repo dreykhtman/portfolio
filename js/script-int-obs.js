@@ -42,7 +42,6 @@ const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
     // In substring(21), 21 is the length of "screenshot-container-"
     if (entry.isIntersecting) {
-      // timeout = 255;
       entry.target.children[0].classList.add('active');
       clearTimeout(timeoutIDs[entry.target.id]);
 
