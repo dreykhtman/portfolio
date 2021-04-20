@@ -38,10 +38,11 @@ const options = {
 const timeoutIDs = {};
 
 // Each entry is the screenshot container div
-const observerCallback = (entries, observer) => {
+const observerCallback = (entries) => {
   entries.forEach((entry) => {
     // In substring(21), 21 is the length of "screenshot-container-"
     if (entry.isIntersecting) {
+      // Add class 'active' to the <img> element containing the screenshot
       entry.target.children[0].classList.add('active');
       clearTimeout(timeoutIDs[entry.target.id]);
 
@@ -58,10 +59,15 @@ const observerCallback = (entries, observer) => {
       );
 
       timeoutIDs[entry.target.id] = setTimeout(() => {
+        // Remove class 'active' from the <img> element containing the screenshot
         entry.target.children[0].classList.remove('active');
       }, 400);
     }
   });
+
+  // setAttr is in script-svg.js
+  // eslint-disable-next-line no-undef
+  setAttr();
 };
 
 const observer = new IntersectionObserver(observerCallback, options);
