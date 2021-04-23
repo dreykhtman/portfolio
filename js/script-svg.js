@@ -27,11 +27,21 @@ document.querySelectorAll('img[id^="screenshot-"]').forEach((screenshot) =>
       `span[id^=from-${screenshot.id.substring(11)}`
     ),
     // svgArrows is a similar NodeList of the <path> elements
-    svgArrows: document.querySelectorAll(
-      `path[id^=svg-${screenshot.id.substring(11)}]`
+    svgArrows: [
+      ...document.querySelectorAll(
+        `path[id^=svg-${screenshot.id.substring(11)}]`
+      ),
+    ].reduce(
+      (obj, element) => ({
+        ...obj,
+        [element.id.substring(14)]: element,
+      }),
+      {}
     ),
   })
 );
+
+console.log(elementMap);
 
 class Arrow {
   constructor(fromElement, toImage, xRatio, yRatio) {
@@ -87,6 +97,14 @@ class Arrow {
     };
   }
 }
+
+// [x, y]
+const arrowheadRatios = {
+  nav: [0.05, 0.93],
+  player: [0.88, 0.7],
+  sticky: [0.5, 0.15],
+  svg: [0.1, 0.2],
+};
 
 const setAttr = () => {
   if (screenshotCotillion.classList.contains('active')) {
@@ -144,6 +162,22 @@ const setAttr = () => {
 
 document.addEventListener('scroll', () => {
   setAttr();
+
+  elementMap.forEach((elements, screenshot) => {
+    if (screenshot.classList.contains('active')) {
+      // Create arrows:
+      const arrows = [];
+      elements.fromElements.forEach((from) => {
+        arrows.push(
+          new Arrow(
+            from,
+            screenshot,
+            ...arrowheadRatios[from.id.substring(screenshot.id.length - 5)]
+          )
+        );
+      });
+    }
+  });
 });
 
 window.addEventListener('resize', () => {
