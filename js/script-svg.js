@@ -1,22 +1,12 @@
-// <span> elements where the arrows start
-// const cotillionNavFrom = document.getElementById('from-cotillion--nav');
-// const cotillionPlayerFrom = document.getElementById('from-cotillion--player');
-// const cotillionStickyFrom = document.getElementById('from-cotillion--sticky');
-// const portfolioSvgFrom = document.getElementById('from-portfolio--svg');
+// [x, y]. These ratios have to be set up manually based on the images.
+const arrowheadRatios = {
+  nav: [0.05, 0.93],
+  player: [0.88, 0.7],
+  sticky: [0.5, 0.15],
+  svg: [0.1, 0.2],
+};
 
-// // Screenshots to where the arrows point
-// const screenshotCotillion = document.getElementById('screenshot--cotillion');
-// const screenshotPortfolio = document.getElementById('screenshot--portfolio');
-
-// // SVG arrows (<path> elements)
-// const svgCotillionNav = document.getElementById('svg-cotillion--nav');
-// const svgCotillionPlayer = document.getElementById('svg-cotillion--player');
-// const svgCotillionSticky = document.getElementById('svg-cotillion--sticky');
-// const svgPortfolioSvg = document.getElementById('svg-portfolio--svg');
-
-// Helper functions
-
-// Returns "nav" from "svg-cotillion--nav"
+// Helper function. Returns "nav" from "svg-cotillion--nav".
 const getIdentifier = (str) => str.split('--').pop();
 
 // Set up the element map. This allows to automatically map all of the required elements for the script to work based on tags, IDs, and classes.
@@ -64,7 +54,7 @@ class Arrow {
 
   static getP0(fromElement) {
     let { right, left, bottom } = fromElement.getBoundingClientRect();
-    [right, left, bottom] = [right, left, bottom].map((v) => Math.round(v));
+    [right, left, bottom] = [right, left, bottom].map((num) => Math.round(num));
 
     return {
       p0x: Math.round((left + right) / 2),
@@ -74,8 +64,8 @@ class Arrow {
 
   static getP3(toImage, xRatio, yRatio) {
     let { right, left, top, bottom } = toImage.getBoundingClientRect();
-    [right, left, top, bottom] = [right, left, top, bottom].map((v) =>
-      Math.round(v)
+    [right, left, top, bottom] = [right, left, top, bottom].map((num) =>
+      Math.round(num)
     );
 
     const p3x = Math.round((right - left) * xRatio + left);
@@ -100,16 +90,8 @@ class Arrow {
   }
 }
 
-// [x, y]
-const arrowheadRatios = {
-  nav: [0.05, 0.93],
-  player: [0.88, 0.7],
-  sticky: [0.5, 0.15],
-  svg: [0.1, 0.2],
-};
-
 const setAttr = () => {
-  // This is a Map forEach, not Array forEach
+  // This is a Map forEach, not an Array forEach
   elementMap.forEach((elements, screenshot) => {
     if (screenshot.classList.contains('active')) {
       elements.fromElements.forEach((from) => {
@@ -125,50 +107,6 @@ const setAttr = () => {
       });
     }
   });
-  // if (screenshotCotillion.classList.contains('active')) {
-  //   const cotillionNavArrow = new Arrow(
-  //     cotillionNavFrom,
-  //     screenshotCotillion,
-  //     0.05,
-  //     0.93
-  //   );
-  //   const cotillionPlayerArrow = new Arrow(
-  //     cotillionPlayerFrom,
-  //     screenshotCotillion,
-  //     0.88,
-  //     0.7
-  //   );
-  //   const cotillionStickyArrow = new Arrow(
-  //     cotillionStickyFrom,
-  //     screenshotCotillion,
-  //     0.5,
-  //     0.15
-  //   );
-  //   svgCotillionNav.setAttribute(
-  //     'd',
-  //     `M ${cotillionNavArrow.p0x} ${cotillionNavArrow.p0y} C ${cotillionNavArrow.p1x} ${cotillionNavArrow.p1y} ${cotillionNavArrow.p2x} ${cotillionNavArrow.p2y} ${cotillionNavArrow.p3x} ${cotillionNavArrow.p3y}`
-  //   );
-  //   svgCotillionPlayer.setAttribute(
-  //     'd',
-  //     `M ${cotillionPlayerArrow.p0x} ${cotillionPlayerArrow.p0y} C ${cotillionPlayerArrow.p1x} ${cotillionPlayerArrow.p1y} ${cotillionPlayerArrow.p2x} ${cotillionPlayerArrow.p2y} ${cotillionPlayerArrow.p3x} ${cotillionPlayerArrow.p3y}`
-  //   );
-  //   svgCotillionSticky.setAttribute(
-  //     'd',
-  //     `M ${cotillionStickyArrow.p0x} ${cotillionStickyArrow.p0y} C ${cotillionStickyArrow.p1x} ${cotillionStickyArrow.p1y} ${cotillionStickyArrow.p2x} ${cotillionStickyArrow.p2y} ${cotillionStickyArrow.p3x} ${cotillionStickyArrow.p3y}`
-  //   );
-  // }
-  // if (screenshotPortfolio.classList.contains('active')) {
-  //   const portfolioSvgArrow = new Arrow(
-  //     portfolioSvgFrom,
-  //     screenshotPortfolio,
-  //     0.1,
-  //     0.2
-  //   );
-  //   svgPortfolioSvg.setAttribute(
-  //     'd',
-  //     `M ${portfolioSvgArrow.p0x} ${portfolioSvgArrow.p0y} C ${portfolioSvgArrow.p1x} ${portfolioSvgArrow.p1y} ${portfolioSvgArrow.p2x} ${portfolioSvgArrow.p2y} ${portfolioSvgArrow.p3x} ${portfolioSvgArrow.p3y}`
-  //   );
-  // }
 };
 
 document.addEventListener('scroll', () => {
