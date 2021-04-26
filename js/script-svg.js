@@ -1,21 +1,25 @@
 // <span> elements where the arrows start
-const cotillionNavFrom = document.getElementById('from-cotillion-nav');
-const cotillionPlayerFrom = document.getElementById('from-cotillion-player');
-const cotillionStickyFrom = document.getElementById('from-cotillion-sticky');
-const portfolioSvgFrom = document.getElementById('from-portfolio-svg');
+const cotillionNavFrom = document.getElementById('from-cotillion--nav');
+const cotillionPlayerFrom = document.getElementById('from-cotillion--player');
+const cotillionStickyFrom = document.getElementById('from-cotillion--sticky');
+const portfolioSvgFrom = document.getElementById('from-portfolio--svg');
 
 // Screenshots to where the arrows point
-const screenshotCotillion = document.getElementById('screenshot-cotillion');
-const screenshotPortfolio = document.getElementById('screenshot-portfolio');
+const screenshotCotillion = document.getElementById('screenshot--cotillion');
+const screenshotPortfolio = document.getElementById('screenshot--portfolio');
 
 // SVG arrows (<path> elements)
-const svgCotillionNav = document.getElementById('svg-cotillion-nav');
-const svgCotillionPlayer = document.getElementById('svg-cotillion-player');
-const svgCotillionSticky = document.getElementById('svg-cotillion-sticky');
-const svgPortfolioSvg = document.getElementById('svg-portfolio-svg');
+const svgCotillionNav = document.getElementById('svg-cotillion--nav');
+const svgCotillionPlayer = document.getElementById('svg-cotillion--player');
+const svgCotillionSticky = document.getElementById('svg-cotillion--sticky');
+const svgPortfolioSvg = document.getElementById('svg-portfolio--svg');
+
+// Helper functions
+const getIdentifier = (str) => str.split('--').pop();
+
+// console.log(getIdentifier(screenshotCotillion.id));
 
 // Set up the element map. This allows to automatically map all of the required elements for the script to work based on tags, IDs, and classes.
-
 const elementMap = new Map();
 
 // Find every <img> element that has an ID that starts with "screenshot-"
@@ -24,12 +28,12 @@ document.querySelectorAll('img[id^="screenshot-"]').forEach((screenshot) =>
   elementMap.set(screenshot, {
     // fromElements is a NodeList of <span> elements with IDs that start with "from-${screenshot ID minus the substring "screenshot-"}"
     fromElements: document.querySelectorAll(
-      `span[id^=from-${screenshot.id.substring(11)}`
+      `span[id^=from-${getIdentifier(screenshot.id, 'screenshot-')}`
     ),
-    // svgArrows is a similar NodeList of the <path> elements
+    // svgArrows is an object where keys are the identifying parts of IDs (nav, player, etc), and values are the corresponding elements
     svgArrows: [
       ...document.querySelectorAll(
-        `path[id^=svg-${screenshot.id.substring(11)}]`
+        `path[id^=svg-${getIdentifier(screenshot.id)}]`
       ),
     ].reduce(
       (obj, element) => ({

@@ -22,8 +22,8 @@ const descriptionList = {};
 
 descriptions.forEach((description) => {
   const arrows = document.getElementById(
-    // In substring(12), 12 is the length of "description-"
-    `arrows-${description.id.substring(12)}`
+    // In substring(13), 13 is the length of "description--"
+    `arrows--${description.id.substring(13)}`
   );
 
   descriptionList[description.id] = [description, arrows];
@@ -40,19 +40,19 @@ const timeoutIDs = {};
 // Each entry is the screenshot container div
 const observerCallback = (entries) => {
   entries.forEach((entry) => {
-    // In substring(21), 21 is the length of "screenshot-container-"
+    // In substring(22), 22 is the length of "screenshot-container--"
     if (entry.isIntersecting) {
       // Add class 'active' to the <img> element containing the screenshot
       entry.target.children[0].classList.add('active');
       clearTimeout(timeoutIDs[entry.target.id]);
 
-      descriptionList[`description-${entry.target.id.substring(21)}`].forEach(
+      descriptionList[`description--${entry.target.id.substring(22)}`].forEach(
         (description) => {
           description.classList.add('visible');
         }
       );
     } else {
-      descriptionList[`description-${entry.target.id.substring(21)}`].forEach(
+      descriptionList[`description--${entry.target.id.substring(22)}`].forEach(
         (description) => {
           description.classList.remove('visible');
         }
