@@ -15,20 +15,20 @@ const svgCotillionSticky = document.getElementById('svg-cotillion--sticky');
 const svgPortfolioSvg = document.getElementById('svg-portfolio--svg');
 
 // Helper functions
-const getIdentifier = (str) => str.split('--').pop();
 
-// console.log(getIdentifier(screenshotCotillion.id));
+// Returns "nav" from "svg-cotillion--nav"
+const getIdentifier = (str) => str.split('--').pop();
 
 // Set up the element map. This allows to automatically map all of the required elements for the script to work based on tags, IDs, and classes.
 const elementMap = new Map();
 
-// Find every <img> element that has an ID that starts with "screenshot-"
-document.querySelectorAll('img[id^="screenshot-"]').forEach((screenshot) =>
+// Find every <img> element that has an ID that starts with "screenshot--"
+document.querySelectorAll('img[id^="screenshot--"]').forEach((screenshot) =>
   // Set up a map where keys are the screenshot elements, and values are objects that have keys "fromElements" and "svgArrows"
   elementMap.set(screenshot, {
     // fromElements is a NodeList of <span> elements with IDs that start with "from-${screenshot ID minus the substring "screenshot-"}"
     fromElements: document.querySelectorAll(
-      `span[id^=from-${getIdentifier(screenshot.id, 'screenshot-')}`
+      `span[id^=from-${getIdentifier(screenshot.id)}`
     ),
     // svgArrows is an object where keys are the identifying parts of IDs (nav, player, etc), and values are the corresponding elements
     svgArrows: [
@@ -38,7 +38,7 @@ document.querySelectorAll('img[id^="screenshot-"]').forEach((screenshot) =>
     ].reduce(
       (obj, element) => ({
         ...obj,
-        [element.id.substring(14)]: element,
+        [getIdentifier(element.id)]: element,
       }),
       {}
     ),
@@ -167,21 +167,21 @@ const setAttr = () => {
 document.addEventListener('scroll', () => {
   setAttr();
 
-  elementMap.forEach((elements, screenshot) => {
-    if (screenshot.classList.contains('active')) {
-      // Create arrows:
-      const arrows = [];
-      elements.fromElements.forEach((from) => {
-        arrows.push(
-          new Arrow(
-            from,
-            screenshot,
-            ...arrowheadRatios[from.id.substring(screenshot.id.length - 5)]
-          )
-        );
-      });
-    }
-  });
+  // elementMap.forEach((elements, screenshot) => {
+  //   if (screenshot.classList.contains('active')) {
+  //     // Create arrows:
+  //     const arrows = [];
+  //     elements.fromElements.forEach((from) => {
+  //       arrows.push(
+  //         new Arrow(
+  //           from,
+  //           screenshot,
+  //           ...arrowheadRatios[from.id.substring(screenshot.id.length - 5)]
+  //         )
+  //       );
+  //     });
+  //   }
+  // });
 });
 
 window.addEventListener('resize', () => {
