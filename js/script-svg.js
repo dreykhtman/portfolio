@@ -1,18 +1,18 @@
 // <span> elements where the arrows start
-const cotillionNavFrom = document.getElementById('from-cotillion--nav');
-const cotillionPlayerFrom = document.getElementById('from-cotillion--player');
-const cotillionStickyFrom = document.getElementById('from-cotillion--sticky');
-const portfolioSvgFrom = document.getElementById('from-portfolio--svg');
+// const cotillionNavFrom = document.getElementById('from-cotillion--nav');
+// const cotillionPlayerFrom = document.getElementById('from-cotillion--player');
+// const cotillionStickyFrom = document.getElementById('from-cotillion--sticky');
+// const portfolioSvgFrom = document.getElementById('from-portfolio--svg');
 
-// Screenshots to where the arrows point
-const screenshotCotillion = document.getElementById('screenshot--cotillion');
-const screenshotPortfolio = document.getElementById('screenshot--portfolio');
+// // Screenshots to where the arrows point
+// const screenshotCotillion = document.getElementById('screenshot--cotillion');
+// const screenshotPortfolio = document.getElementById('screenshot--portfolio');
 
-// SVG arrows (<path> elements)
-const svgCotillionNav = document.getElementById('svg-cotillion--nav');
-const svgCotillionPlayer = document.getElementById('svg-cotillion--player');
-const svgCotillionSticky = document.getElementById('svg-cotillion--sticky');
-const svgPortfolioSvg = document.getElementById('svg-portfolio--svg');
+// // SVG arrows (<path> elements)
+// const svgCotillionNav = document.getElementById('svg-cotillion--nav');
+// const svgCotillionPlayer = document.getElementById('svg-cotillion--player');
+// const svgCotillionSticky = document.getElementById('svg-cotillion--sticky');
+// const svgPortfolioSvg = document.getElementById('svg-portfolio--svg');
 
 // Helper functions
 
@@ -24,13 +24,13 @@ const elementMap = new Map();
 
 // Find every <img> element that has an ID that starts with "screenshot--"
 document.querySelectorAll('img[id^="screenshot--"]').forEach((screenshot) =>
-  // Set up a map where keys are the screenshot elements, and values are objects that have keys "fromElements" and "svgArrows"
+  // Set up the map where keys are the screenshot elements, and values are objects "fromElements" and "svgArrows"
   elementMap.set(screenshot, {
-    // fromElements is a NodeList of <span> elements with IDs that start with "from-${screenshot ID minus the substring "screenshot-"}"
+    // fromElements is a NodeList of <span> elements with IDs that start with "from-${screenshot identifier}"
     fromElements: document.querySelectorAll(
       `span[id^=from-${getIdentifier(screenshot.id)}`
     ),
-    // svgArrows is an object where keys are the identifying parts of IDs (nav, player, etc), and values are the corresponding elements
+    // svgArrows is an object where keys are the identifying parts of IDs (nav, player, etc.), and values are the elements themselves
     svgArrows: [
       ...document.querySelectorAll(
         `path[id^=svg-${getIdentifier(screenshot.id)}]`
@@ -44,8 +44,6 @@ document.querySelectorAll('img[id^="screenshot--"]').forEach((screenshot) =>
     ),
   })
 );
-
-console.log(elementMap);
 
 class Arrow {
   constructor(fromElement, toImage, xRatio, yRatio) {
@@ -111,77 +109,70 @@ const arrowheadRatios = {
 };
 
 const setAttr = () => {
-  if (screenshotCotillion.classList.contains('active')) {
-    const cotillionNavArrow = new Arrow(
-      cotillionNavFrom,
-      screenshotCotillion,
-      0.05,
-      0.93
-    );
-
-    const cotillionPlayerArrow = new Arrow(
-      cotillionPlayerFrom,
-      screenshotCotillion,
-      0.88,
-      0.7
-    );
-
-    const cotillionStickyArrow = new Arrow(
-      cotillionStickyFrom,
-      screenshotCotillion,
-      0.5,
-      0.15
-    );
-
-    svgCotillionNav.setAttribute(
-      'd',
-      `M ${cotillionNavArrow.p0x} ${cotillionNavArrow.p0y} C ${cotillionNavArrow.p1x} ${cotillionNavArrow.p1y} ${cotillionNavArrow.p2x} ${cotillionNavArrow.p2y} ${cotillionNavArrow.p3x} ${cotillionNavArrow.p3y}`
-    );
-
-    svgCotillionPlayer.setAttribute(
-      'd',
-      `M ${cotillionPlayerArrow.p0x} ${cotillionPlayerArrow.p0y} C ${cotillionPlayerArrow.p1x} ${cotillionPlayerArrow.p1y} ${cotillionPlayerArrow.p2x} ${cotillionPlayerArrow.p2y} ${cotillionPlayerArrow.p3x} ${cotillionPlayerArrow.p3y}`
-    );
-
-    svgCotillionSticky.setAttribute(
-      'd',
-      `M ${cotillionStickyArrow.p0x} ${cotillionStickyArrow.p0y} C ${cotillionStickyArrow.p1x} ${cotillionStickyArrow.p1y} ${cotillionStickyArrow.p2x} ${cotillionStickyArrow.p2y} ${cotillionStickyArrow.p3x} ${cotillionStickyArrow.p3y}`
-    );
-  }
-
-  if (screenshotPortfolio.classList.contains('active')) {
-    const portfolioSvgArrow = new Arrow(
-      portfolioSvgFrom,
-      screenshotPortfolio,
-      0.1,
-      0.2
-    );
-
-    svgPortfolioSvg.setAttribute(
-      'd',
-      `M ${portfolioSvgArrow.p0x} ${portfolioSvgArrow.p0y} C ${portfolioSvgArrow.p1x} ${portfolioSvgArrow.p1y} ${portfolioSvgArrow.p2x} ${portfolioSvgArrow.p2y} ${portfolioSvgArrow.p3x} ${portfolioSvgArrow.p3y}`
-    );
-  }
+  // This is a Map forEach, not Array forEach
+  elementMap.forEach((elements, screenshot) => {
+    if (screenshot.classList.contains('active')) {
+      elements.fromElements.forEach((from) => {
+        const arrow = new Arrow(
+          from,
+          screenshot,
+          ...arrowheadRatios[getIdentifier(from.id)]
+        );
+        elements.svgArrows[getIdentifier(from.id)].setAttribute(
+          'd',
+          `M ${arrow.p0x} ${arrow.p0y} C ${arrow.p1x} ${arrow.p1y} ${arrow.p2x} ${arrow.p2y} ${arrow.p3x} ${arrow.p3y}`
+        );
+      });
+    }
+  });
+  // if (screenshotCotillion.classList.contains('active')) {
+  //   const cotillionNavArrow = new Arrow(
+  //     cotillionNavFrom,
+  //     screenshotCotillion,
+  //     0.05,
+  //     0.93
+  //   );
+  //   const cotillionPlayerArrow = new Arrow(
+  //     cotillionPlayerFrom,
+  //     screenshotCotillion,
+  //     0.88,
+  //     0.7
+  //   );
+  //   const cotillionStickyArrow = new Arrow(
+  //     cotillionStickyFrom,
+  //     screenshotCotillion,
+  //     0.5,
+  //     0.15
+  //   );
+  //   svgCotillionNav.setAttribute(
+  //     'd',
+  //     `M ${cotillionNavArrow.p0x} ${cotillionNavArrow.p0y} C ${cotillionNavArrow.p1x} ${cotillionNavArrow.p1y} ${cotillionNavArrow.p2x} ${cotillionNavArrow.p2y} ${cotillionNavArrow.p3x} ${cotillionNavArrow.p3y}`
+  //   );
+  //   svgCotillionPlayer.setAttribute(
+  //     'd',
+  //     `M ${cotillionPlayerArrow.p0x} ${cotillionPlayerArrow.p0y} C ${cotillionPlayerArrow.p1x} ${cotillionPlayerArrow.p1y} ${cotillionPlayerArrow.p2x} ${cotillionPlayerArrow.p2y} ${cotillionPlayerArrow.p3x} ${cotillionPlayerArrow.p3y}`
+  //   );
+  //   svgCotillionSticky.setAttribute(
+  //     'd',
+  //     `M ${cotillionStickyArrow.p0x} ${cotillionStickyArrow.p0y} C ${cotillionStickyArrow.p1x} ${cotillionStickyArrow.p1y} ${cotillionStickyArrow.p2x} ${cotillionStickyArrow.p2y} ${cotillionStickyArrow.p3x} ${cotillionStickyArrow.p3y}`
+  //   );
+  // }
+  // if (screenshotPortfolio.classList.contains('active')) {
+  //   const portfolioSvgArrow = new Arrow(
+  //     portfolioSvgFrom,
+  //     screenshotPortfolio,
+  //     0.1,
+  //     0.2
+  //   );
+  //   svgPortfolioSvg.setAttribute(
+  //     'd',
+  //     `M ${portfolioSvgArrow.p0x} ${portfolioSvgArrow.p0y} C ${portfolioSvgArrow.p1x} ${portfolioSvgArrow.p1y} ${portfolioSvgArrow.p2x} ${portfolioSvgArrow.p2y} ${portfolioSvgArrow.p3x} ${portfolioSvgArrow.p3y}`
+  //   );
+  // }
 };
 
 document.addEventListener('scroll', () => {
   setAttr();
-
-  // elementMap.forEach((elements, screenshot) => {
-  //   if (screenshot.classList.contains('active')) {
-  //     // Create arrows:
-  //     const arrows = [];
-  //     elements.fromElements.forEach((from) => {
-  //       arrows.push(
-  //         new Arrow(
-  //           from,
-  //           screenshot,
-  //           ...arrowheadRatios[from.id.substring(screenshot.id.length - 5)]
-  //         )
-  //       );
-  //     });
-  //   }
-  // });
 });
 
 window.addEventListener('resize', () => {
