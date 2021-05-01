@@ -90,7 +90,7 @@ class Arrow {
   }
 }
 
-const setAttr = () => {
+const drawArrows = () => {
   // This is a Map forEach, not an Array forEach
   elementMap.forEach((elements, screenshot) => {
     if (screenshot.classList.contains('active')) {
@@ -110,9 +110,9 @@ const setAttr = () => {
 };
 
 document.addEventListener('scroll', () => {
-  setAttr();
+  drawArrows();
 });
 
 window.addEventListener('resize', () => {
-  setAttr();
+  drawArrows();
 });

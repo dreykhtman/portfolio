@@ -29,6 +29,8 @@ descriptions.forEach((description) => {
   descriptionList[description.id] = [description, arrows];
 });
 
+console.log(descriptionList);
+
 const options = {
   root: null,
   rootMargin: '-50% 0% -50% 0%',
@@ -65,9 +67,9 @@ const observerCallback = (entries) => {
     }
   });
 
-  // setAttr is in script-svg.js
+  // drawArrows is in script-svg.js
   // eslint-disable-next-line no-undef
-  setAttr();
+  drawArrows();
 };
 
 const observer = new IntersectionObserver(observerCallback, options);
