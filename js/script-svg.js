@@ -1,3 +1,5 @@
+/* global getIdentifier */
+
 // [x, y]. These ratios have to be set up manually based on the images.
 const arrowheadRatios = {
   nav: [0.05, 0.93],
@@ -5,9 +7,6 @@ const arrowheadRatios = {
   sticky: [0.5, 0.15],
   svg: [0.1, 0.2],
 };
-
-// Helper function. Returns "nav" from "svg-cotillion--nav".
-const getIdentifier = (str) => str.split('--').pop();
 
 // Set up the element map. This allows to automatically map all of the required elements for the script to work based on tags, IDs, and classes.
 const elementMap = new Map();

@@ -1,68 +1,45 @@
+/* global getIdentifier */
+
 // screenshotContainers will be observed by the Intersection Observer
 const screenshotContainers = document.querySelectorAll('.screenshot-container');
 const descriptions = document.querySelectorAll('.description');
 
+// Create the descriptionList object, where the keys are names of the description IDs ("description--cotillion", "description--portfolio", etc.), and the values are arrays of elements where the class "visible" will be removed or added.
 const descriptionList = {};
-
-// Create the descriptionList object, where the keys are names of the description IDs ("description-cotillion", "description-portfolio", etc), and the values are arrays of elements to which the class "visible" is removed or added.
-
-// Simplified example:
-/*
-{
-  description-cotillion: [
-    div#description-cotillion.description,
-    g#arrows-cotillion.arrows
-  ],
-  description-portfolio: [
-    div#description-portfolio.description,
-    g#arrows-portfolio.arrows
-  ]
-}
-*/
 
 descriptions.forEach((description) => {
   const arrows = document.getElementById(
-    // In substring(13), 13 is the length of "description--"
-    `arrows--${description.id.substring(13)}`
+    `arrows--${getIdentifier(description.id)}`
   );
 
   descriptionList[description.id] = [description, arrows];
 });
-
-console.log(descriptionList);
-
-const options = {
-  root: null,
-  rootMargin: '-50% 0% -50% 0%',
-  threshold: 0,
-};
 
 const timeoutIDs = {};
 
 // Each entry is the screenshot container div
 const observerCallback = (entries) => {
   entries.forEach((entry) => {
-    // In substring(22), 22 is the length of "screenshot-container--"
     if (entry.isIntersecting) {
       // Add class 'active' to the <img> element containing the screenshot
-      entry.target.children[0].classList.add('active');
+      entry.target.querySelector('img').classList.add('active');
       clearTimeout(timeoutIDs[entry.target.id]);
 
-      descriptionList[`description--${entry.target.id.substring(22)}`].forEach(
-        (description) => {
-          description.classList.add('visible');
+      descriptionList[`description--${getIdentifier(entry.target.id)}`].forEach(
+        (element) => {
+          element.classList.add('visible');
         }
       );
     } else {
-      descriptionList[`description--${entry.target.id.substring(22)}`].forEach(
-        (description) => {
-          description.classList.remove('visible');
+      descriptionList[`description--${getIdentifier(entry.target.id)}`].forEach(
+        (element) => {
+          element.classList.remove('visible');
         }
       );
 
       timeoutIDs[entry.target.id] = setTimeout(() => {
         // Remove class 'active' from the <img> element containing the screenshot
-        entry.target.children[0].classList.remove('active');
+        entry.target.querySelector('img').classList.remove('active');
       }, 400);
     }
   });
@@ -70,6 +47,13 @@ const observerCallback = (entries) => {
   // drawArrows is in script-svg.js
   // eslint-disable-next-line no-undef
   drawArrows();
+};
+
+// Intersection Observer options and initialization
+const options = {
+  root: null,
+  rootMargin: '-50% 0% -50% 0%',
+  threshold: 0,
 };
 
 const observer = new IntersectionObserver(observerCallback, options);
