@@ -67,7 +67,7 @@ span {
 path {
   stroke-dasharray: 2000;
   stroke-dashoffset: 2000;
-  animation: dash 1s linear forwards;
+  animation: dash 0.7s ease-in forwards;
 }
 
 @keyframes dash {

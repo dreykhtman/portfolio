@@ -21,6 +21,7 @@ svg {
   outline: 1px solid transparent; }
 
 .container__about {
+  height: 100vh;
   background-color: darkslateblue; }
 
 .container__projects {
@@ -80,7 +81,7 @@ span {
 path {
   stroke-dasharray: 2000;
   stroke-dashoffset: 2000;
-  animation: dash 1s linear forwards; }
+  animation: dash 0.7s ease-in forwards; }
 
 @keyframes dash {
   to {

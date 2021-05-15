@@ -1,6 +1,6 @@
 /* global getIdentifier */
 
-// [x, y]. These ratios have to be set up manually based on the images.
+// [x, y]. These ratios must be set up manually based on the images
 const arrowheadRatios = {
   nav: [0.05, 0.93],
   player: [0.88, 0.7],
@@ -8,7 +8,7 @@ const arrowheadRatios = {
   svg: [0.1, 0.2],
 };
 
-// Set up the element map. This allows to automatically map all of the required elements for the script to work based on tags, IDs, and classes.
+// Set up the element map. That allows to automatically map out all of the required elements for the script to work, based on tags, IDs, and classes.
 const elementMap = new Map();
 
 // Find every <img> element that has an ID that starts with "screenshot--"
@@ -19,7 +19,7 @@ document.querySelectorAll('img[id^="screenshot--"]').forEach((screenshot) =>
     fromElements: document.querySelectorAll(
       `span[id^=from-${getIdentifier(screenshot.id)}`
     ),
-    // svgArrows is an object where keys are the identifying parts of IDs (nav, player, etc.), and values are the elements themselves
+    // svgArrows is an object where keys are the identifying parts of IDs (nav, player, etc.), and values are the <path> elements themselves
     svgArrows: [
       ...document.querySelectorAll(
         `path[id^=svg-${getIdentifier(screenshot.id)}]`
@@ -34,6 +34,11 @@ document.querySelectorAll('img[id^="screenshot--"]').forEach((screenshot) =>
   })
 );
 
+// Cubic Bezier points:
+// P0 - start coordinates
+// P1 and P2 - coordinates of points that determine the curve
+// P3 - end coordinates
+
 class Arrow {
   constructor(fromElement, toImage, xRatio, yRatio) {
     ({ p0x: this.p0x, p0y: this.p0y } = Arrow.getP0(fromElement));
@@ -45,11 +50,6 @@ class Arrow {
       p2y: this.p2y,
     } = Arrow.getP1P2(this.p0x, this.p0y, this.p3x, this.p3y));
   }
-
-  // Cubic Bezier:
-  // P0 - start coordinates
-  // P1 and P2 - coordinates of points that determine the curve
-  // P3 - end coordinates
 
   static getP0(fromElement) {
     let { right, left, bottom } = fromElement.getBoundingClientRect();
@@ -90,7 +90,7 @@ class Arrow {
 }
 
 const drawArrows = () => {
-  // This is a Map forEach, not an Array forEach
+  // This is the Map.prototype.forEach(), not the Array forEach
   elementMap.forEach((elements, screenshot) => {
     if (screenshot.classList.contains('active')) {
       elements.fromElements.forEach((from) => {
@@ -99,6 +99,7 @@ const drawArrows = () => {
           screenshot,
           ...arrowheadRatios[getIdentifier(from.id)]
         );
+
         elements.svgArrows[getIdentifier(from.id)].setAttribute(
           'd',
           `M ${arrow.p0x} ${arrow.p0y} C ${arrow.p1x} ${arrow.p1y} ${arrow.p2x} ${arrow.p2y} ${arrow.p3x} ${arrow.p3y}`
