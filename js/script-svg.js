@@ -8,7 +8,8 @@ const arrowheadRatios = {
   svg: [0.1, 0.2],
 };
 
-// Set up the element map. That allows to automatically map out all of the required elements for the script to work, based on tags, IDs, and classes.
+// Set up the element map. That allows to automatically map out all of the
+// required elements for the script to work, based on tags, IDs, and classes.
 const elementMap = new Map();
 
 // Find every <img> element that has an ID that starts with "screenshot--"
@@ -19,7 +20,8 @@ document.querySelectorAll('img[id^="screenshot--"]').forEach((screenshot) =>
     fromElements: document.querySelectorAll(
       `span[id^=from-${getIdentifier(screenshot.id)}`
     ),
-    // svgArrows is an object where keys are the identifying parts of IDs (nav, player, etc.), and values are the <path> elements themselves
+    // svgArrows is an object where keys are the identifying parts of IDs (nav, player, etc.),
+    // and values are the <path> elements themselves.
     svgArrows: [
       ...document.querySelectorAll(
         `path[id^=svg-${getIdentifier(screenshot.id)}]`
@@ -34,11 +36,12 @@ document.querySelectorAll('img[id^="screenshot--"]').forEach((screenshot) =>
   })
 );
 
-// Cubic Bezier points:
-// P0 - start coordinates
-// P1 and P2 - coordinates of points that determine the curve
-// P3 - end coordinates
-
+/*
+Cubic Bezier points:
+P0 - start coordinates
+P1 and P2 - coordinates of points that determine the curve
+P3 - end coordinates
+*/
 class Arrow {
   constructor(fromElement, toImage, xRatio, yRatio) {
     ({ p0x: this.p0x, p0y: this.p0y } = Arrow.getP0(fromElement));

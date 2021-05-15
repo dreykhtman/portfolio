@@ -3,8 +3,11 @@
 // screenshotContainers will be observed by the Intersection Observer
 const screenshotContainers = document.querySelectorAll('.screenshot-container');
 const descriptions = document.querySelectorAll('.description');
-
-// Create an object "descriptionList", where keys are the names of the description IDs ("description--cotillion", "description--portfolio", etc.), and values are arrays of elements where the class "visible" will be removed or added (in the observerCallback function).
+/*
+Create an object "descriptionList", where keys are the names of the
+description IDs ("description--cotillion", "description--portfolio", etc.),
+and values are arrays of elements where the class "visible" will be removed or added (in the observerCallback function).
+*/
 const descriptionList = {};
 
 descriptions.forEach((description) => {
@@ -15,7 +18,13 @@ descriptions.forEach((description) => {
   descriptionList[description.id] = [description, arrows];
 });
 
-// The SVG arrow values are only calculated when the arrows are visible. Class 'active' determines whether the values are being calculated or not. setTimeout is needed because there's a fadeout animation, so there should be a delay before the arrow value calculation stops. The delay is the same length as the animation time.
+/*
+The SVG arrow values are only calculated when the arrows are visible.
+Class 'active' determines whether the values are being calculated or not.
+setTimeout is needed because there's a fadeout animation, so there should be
+a delay before the arrow value calculation stops. 
+The delay is the same length as the animation time.
+*/
 // The timeoutIDs object stores the IDs for the setTimeout method.
 const timeoutIDs = {};
 

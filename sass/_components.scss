@@ -48,34 +48,23 @@
 }
 
 .arrows {
-  // visibility: hidden;
   opacity: 0;
   transition: opacity 0.4s;
+  animation: dash 4s infinite linear;
+  stroke-dasharray: 10, 7;
 }
 
 .visible {
-  // visibility: visible;
   opacity: 1;
-  // transition: visibility 0.4s, opacity 0.4s;
 }
 
 span {
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid yellow;
   display: inline-block;
-}
-
-path {
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 2000;
-  animation: dash 0.7s ease-in forwards;
 }
 
 @keyframes dash {
   to {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: -102;
   }
-}
-
-.animate {
-  animation: dash 1s linear forwards;
 }
