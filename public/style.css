@@ -13,7 +13,7 @@ body {
 
 svg {
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   height: 100%;
@@ -26,7 +26,7 @@ svg {
 
 .container__projects {
   height: 400vh;
-  background-color: #fd9c92;
+  background-color: #ece0d8;
   display: flex; }
 
 .container__footer {
@@ -44,7 +44,7 @@ svg {
   color: darkslategrey; }
   .descriptions__text {
     position: relative;
-    z-index: 2; }
+    z-index: 3; }
 
 .screenshots {
   display: flex;
@@ -65,20 +65,28 @@ svg {
   transition: opacity 0.4s; }
   .description > p {
     position: relative;
-    z-index: 2; }
+    z-index: 3; }
 
 .arrows {
   opacity: 0;
-  transition: opacity 0.4s;
-  animation: dash 4s infinite linear;
-  stroke-dasharray: 10, 7; }
+  transition: opacity 0.4s; }
 
 .visible {
   opacity: 1; }
 
 span {
-  border-bottom: 2px solid yellow;
+  position: relative;
   display: inline-block; }
+  span::before {
+    z-index: -1;
+    position: absolute;
+    content: '';
+    height: 2px;
+    top: 96%;
+    width: 100%;
+    background-color: skyblue;
+    left: 0;
+    box-shadow: 8px 15px 4px rgba(0, 0, 0, 0.1); }
 
 @keyframes dash {
   to {

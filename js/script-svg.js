@@ -4,7 +4,7 @@
 const arrowheadRatios = {
   nav: [0.05, 0.93],
   player: [0.88, 0.7],
-  sticky: [0.5, 0.15],
+  sticky: [0.5, 0.18],
   svg: [0.1, 0.2],
 };
 

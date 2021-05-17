@@ -12,7 +12,7 @@
 
   &__text {
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 }
 
@@ -43,15 +43,15 @@
 
   & > p {
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 }
 
 .arrows {
   opacity: 0;
   transition: opacity 0.4s;
-  animation: dash 4s infinite linear;
-  stroke-dasharray: 10, 7;
+  // animation: dash 4s infinite linear;
+  // stroke-dasharray: 10, 7;
 }
 
 .visible {
@@ -59,8 +59,23 @@
 }
 
 span {
-  border-bottom: 2px solid yellow;
+  position: relative;
+  // border-bottom: 2px solid skyblue;
   display: inline-block;
+
+  &::before {
+    z-index: -1;
+    position: absolute;
+    content: '';
+    height: 2px;
+    top: 96%;
+    width: 100%;
+    background-color: skyblue;
+
+    left: 0;
+    box-shadow: 8px 15px 4px rgba($color: #000, $alpha: 0.1);
+    // border: 1px solid blue;
+  }
 }
 
 @keyframes dash {
