@@ -4,10 +4,8 @@
   position: sticky;
   top: 0;
 
-  // background-color: rgb(233, 183, 18);
   padding: 10rem;
   font-size: 2.2rem;
-  font-family: sans-serif;
   color: darkslategrey;
 
   &__text {
@@ -40,10 +38,42 @@
   opacity: 0;
   height: 0;
   transition: opacity 0.4s;
+  padding: 5rem 4rem 0rem 4rem;
+
+  & > h2 {
+    padding-bottom: 0.5rem;
+    font-size: 3.8rem;
+  }
+
+  & > .links {
+    & > a {
+      margin-right: 1rem;
+    }
+    position: relative;
+    z-index: 5;
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+  }
 
   & > p {
-    position: relative;
     z-index: 3;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+
+    position: relative;
+    // box-shadow: -8px -10px 10px rgba($color: #000, $alpha: 0.1);
+  }
+}
+
+.github-link {
+  position: relative;
+  display: block;
+  height: 2rem;
+  // width: 100%;
+  z-index: 5;
+
+  & > img {
+    height: 100%;
   }
 }
 
@@ -73,7 +103,7 @@ span {
     background-color: skyblue;
 
     left: 0;
-    box-shadow: 8px 15px 4px rgba($color: #000, $alpha: 0.1);
+    box-shadow: 8px 12px 5px rgba($color: #000, $alpha: 0.15);
     // border: 1px solid blue;
   }
 }

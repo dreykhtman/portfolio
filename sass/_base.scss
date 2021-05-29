@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Enriqueta';
+  src: url('./font/Enriqueta-Regular.ttf') format('truetype'),
+    url('./font/Enriqueta-Bold.ttf') format('truetype');
+}
+
 *,
 *::before,
 *::after {
@@ -21,6 +27,8 @@ html {
 
 body {
   box-sizing: border-box;
+  font-family: 'Enriqueta', serif;
+  font-weight: 400;
 }
 
 svg {

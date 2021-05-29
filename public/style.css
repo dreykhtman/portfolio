@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Enriqueta';
+  src: url("./font/Enriqueta-Regular.ttf") format("truetype"), url("./font/Enriqueta-Bold.ttf") format("truetype"); }
+
 *,
 *::before,
 *::after {
@@ -9,7 +13,9 @@ html {
   font-size: 62.5%; }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: 'Enriqueta', serif;
+  font-weight: 400; }
 
 svg {
   position: fixed;
@@ -21,7 +27,6 @@ svg {
   outline: 1px solid transparent; }
 
 .container__about {
-  height: 100vh;
   background-color: darkslateblue; }
 
 .container__projects {
@@ -40,7 +45,6 @@ svg {
   top: 0;
   padding: 10rem;
   font-size: 2.2rem;
-  font-family: sans-serif;
   color: darkslategrey; }
   .descriptions__text {
     position: relative;
@@ -62,10 +66,31 @@ svg {
 .description {
   opacity: 0;
   height: 0;
-  transition: opacity 0.4s; }
-  .description > p {
+  transition: opacity 0.4s;
+  padding: 5rem 4rem 0rem 4rem; }
+  .description > h2 {
+    padding-bottom: 0.5rem;
+    font-size: 3.8rem; }
+  .description > .links {
     position: relative;
-    z-index: 3; }
+    z-index: 5;
+    font-size: 1.8rem;
+    margin-bottom: 4rem; }
+    .description > .links > a {
+      margin-right: 1rem; }
+  .description > p {
+    z-index: 3;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    position: relative; }
+
+.github-link {
+  position: relative;
+  display: block;
+  height: 2rem;
+  z-index: 5; }
+  .github-link > img {
+    height: 100%; }
 
 .arrows {
   opacity: 0;
@@ -86,7 +111,7 @@ span {
     width: 100%;
     background-color: skyblue;
     left: 0;
-    box-shadow: 8px 15px 4px rgba(0, 0, 0, 0.1); }
+    box-shadow: 8px 12px 5px rgba(0, 0, 0, 0.15); }
 
 @keyframes dash {
   to {
