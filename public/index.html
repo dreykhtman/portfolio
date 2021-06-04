@@ -18,7 +18,7 @@
       <div class="container__projects">
         <div class="descriptions">
           <div class="description" id="description--cotillion">
-            <h2>cotillion.band</h3>
+            <h2>cotillion.band</h2>
             <div class="links">
               <a href="https://www.cotillion.band/">website</a>
               <a href="https://github.com/dreykhtman/cotillion">github</a>
@@ -41,13 +41,77 @@
 
           <div class="description" id="description--portfolio">
             <p>
-              Here I'm using
-              <span id="from-portfolio--svg">dynamic SVG arrows</span>
-              that alwasy point form point A to point B Lorem ipsum dolor, sit
-              amet consectetur adipisicing elit. Soluta, doloremque tempore
-              mollitia fuga provident officiis fugit quod exercitationem esse
-              alias architecto aspernatur voluptates ad necessitatibus
-              recusandae nulla itaque sapiente molestias?
+              Following the previous project, only JavaScript and Sass were used
+              to build this website.
+            </p>
+            <p>
+              The <span id="from-portfolio--svg">arrows</span> that always point
+              to the specified spot are the SVG &lt;path> elements using the
+              cubic Bézier curve commands. The DOMRect object is used to find
+              the starting and ending coordinates. The trusty Intersection API
+              returns to switch the descriptions based on the screenshot in
+              view.
+            </p>
+          </div>
+
+          <div class="description" id="description--proshop">
+            <p>
+              This massive full stack e-commerce app was built using the MERN
+              stack, including the latest React features, Redux, Node.js,
+              MongoDB, JSON Web Tokens, and more. It uses the sandbox PayPal API
+              to emulate the checkout process. The app is deployed on Heroku and
+              MongoDB Atlas.
+            </p>
+          </div>
+
+          <div class="description" id="description--contact">
+            <p>
+              Contact Keeper is a full stack MERN app. The following
+              technologies were used to create it: React with the Context API
+              for state management, MongoDB, Node.js, Express, JSON Web Tokens.
+              The database is deployed on MongoDB Atlas, and the app itself is
+              deployed on Heroku.
+            </p>
+          </div>
+
+          <div class="description" id="description--github">
+            <p>
+              This app utilizes the GitHub API to search GitHub users and show
+              their profile summaries. It's built with React with hooks, the
+              Context API and is deployed on Netlify. Take note of this
+              checkmark.
+            </p>
+          </div>
+
+          <div class="description" id="description--logger">
+            <p>
+              As the name says, this is an IT department log app. It's built
+              with React and Redux. Styling was done with the Materizlize front
+              end framework, and the JSON Server library was used for a mock
+              back end API.
+            </p>
+          </div>
+
+          <div class="description" id="description--natours">
+            <p>
+              You wouldn't believe that this site was built with pure CSS and
+              HTML. There's no JavaSript involved. Instead, it's based on a
+              layout using floats and incorporates plenty of advanced CSS
+              animations and effects.
+            </p>
+          </div>
+
+          <div class="description" id="description--trillo">
+            <p>
+              Trillo is a mockup travel agency website. Flexbox is the primary
+              tool used for layout control on this app.
+            </p>
+          </div>
+
+          <div class="description" id="description--nexter">
+            <p>
+              From the overall layout to segment compositions, CSS Grid made it
+              easy to create this complex design.
             </p>
           </div>
 
@@ -104,13 +168,90 @@
             >
               <path id="svg-portfolio--svg" />
             </g>
+
+            <g
+              id="arrows--proshop"
+              class="arrows"
+              fill="none"
+              stroke=""
+              stroke-width=""
+              marker-end="url(#arrowhead)"
+            >
+              <path />
+            </g>
+
+            <g
+              id="arrows--contact"
+              class="arrows"
+              fill="none"
+              stroke=""
+              stroke-width=""
+              marker-end="url(#arrowhead)"
+            >
+              <path />
+            </g>
+
+            <g
+              id="arrows--github"
+              class="arrows"
+              fill="none"
+              stroke=""
+              stroke-width=""
+              marker-end="url(#arrowhead)"
+            >
+              <path />
+            </g>
+
+            <g
+              id="arrows--logger"
+              class="arrows"
+              fill="none"
+              stroke=""
+              stroke-width=""
+              marker-end="url(#arrowhead)"
+            >
+              <path />
+            </g>
+
+            <g
+              id="arrows--natours"
+              class="arrows"
+              fill="none"
+              stroke=""
+              stroke-width=""
+              marker-end="url(#arrowhead)"
+            >
+              <path />
+            </g>
+
+            <g
+              id="arrows--trillo"
+              class="arrows"
+              fill="none"
+              stroke=""
+              stroke-width=""
+              marker-end="url(#arrowhead)"
+            >
+              <path />
+            </g>
+
+            <g
+              id="arrows--nexter"
+              class="arrows"
+              fill="none"
+              stroke=""
+              stroke-width=""
+              marker-end="url(#arrowhead)"
+            >
+              <path />
+            </g>
           </svg>
         </div>
 
         <div class="screenshots">
           <div
             id="screenshot-container--cotillion"
-            class="screenshot-container my-screenshot"
+            class="screenshot-container"
           >
             <img
               id="screenshot--cotillion"
@@ -121,7 +262,7 @@
 
           <div
             id="screenshot-container--portfolio"
-            class="screenshot-container my-screenshot"
+            class="screenshot-container"
           >
             <img
               id="screenshot--portfolio"
@@ -130,13 +271,61 @@
             />
           </div>
 
-          <!-- <div id="to"></div> -->
-          <div class="course-screenshot"></div>
-          <div class="course-screenshot"></div>
-          <div class="course-screenshot"></div>
-          <div class="course-screenshot"></div>
-          <div class="course-screenshot"></div>
-          <div class="course-screenshot"></div>
+          <div id="screenshot-container--proshop" class="screenshot-container">
+            <img
+              id="screenshot--proshop"
+              src="/public/img/proshop.jpg"
+              alt="ProShop website screenshot"
+            />
+          </div>
+
+          <div id="screenshot-container--contact" class="screenshot-container">
+            <img
+              id="screenshot--contact"
+              src="/public/img/contact.jpg"
+              alt="Contact Keeper website screenshot"
+            />
+          </div>
+
+          <div id="screenshot-container--github" class="screenshot-container">
+            <img
+              id="screenshot--github"
+              src="/public/img/github.jpg"
+              alt="GitHub Finder website screenshot"
+            />
+          </div>
+
+          <div id="screenshot-container--logger" class="screenshot-container">
+            <img
+              id="screenshot--logger"
+              src="/public/img/logger.jpg"
+              alt="IT Logger website screenshot"
+            />
+          </div>
+
+          <div id="screenshot-container--natours" class="screenshot-container">
+            <img
+              id="screenshot--natours"
+              src="/public/img/natours.jpg"
+              alt="Natours website screenshot"
+            />
+          </div>
+
+          <div id="screenshot-container--trillo" class="screenshot-container">
+            <img
+              id="screenshot--trillo"
+              src="/public/img/trillo.jpg"
+              alt="Trillo website screenshot"
+            />
+          </div>
+
+          <div id="screenshot-container--nexter" class="screenshot-container">
+            <img
+              id="screenshot--nexter"
+              src="/public/img/nexter.jpg"
+              alt="Nexter website screenshot"
+            />
+          </div>
         </div>
       </div>
 
