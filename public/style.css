@@ -27,10 +27,10 @@ svg {
   outline: 1px solid transparent; }
 
 .container__about {
+  height: 100vh;
   background-color: darkslateblue; }
 
 .container__projects {
-  height: 5000vh;
   background-color: #ece0d8;
   display: flex; }
 
@@ -67,7 +67,7 @@ svg {
   opacity: 0;
   height: 0;
   transition: opacity 0.4s;
-  padding: 5rem 4rem 0rem 4rem; }
+  padding: 0rem 4rem 0 4rem; }
   .description > h2 {
     padding-bottom: 0.5rem;
     font-size: 3.8rem; }
