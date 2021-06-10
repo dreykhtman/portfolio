@@ -73,9 +73,10 @@
               The <span id="from-portfolio--svg">arrows</span> that always point
               to the specified spot are the SVG &lt;path> elements using the
               cubic Bézier curve commands. The DOMRect object is used to find
-              the starting and ending coordinates. The trusty Intersection API
-              returns to switch the descriptions based on the screenshot in
-              view.
+              the starting and ending
+              <span id="from-portfolio--domrect">coordinates</span> of the
+              arrows. The trusty Intersection API returns to switch the
+              descriptions based on the screenshot in view.
             </p>
           </div>
 
@@ -266,9 +267,13 @@
               >
                 <path d="M 0 0 L 12 5 L 0 12 z" />
               </marker>
-              <linearGradient id="MyGradient">
+              <linearGradient id="skyblue-crimson">
                 <stop offset="0%" stop-color="skyblue" />
                 <stop offset="100%" stop-color="crimson" />
+              </linearGradient>
+              <linearGradient id="MyGradient">
+                <stop offset="0%" stop-color="orange" />
+                <stop offset="100%" stop-color="coral" />
               </linearGradient>
             </defs>
             <g
@@ -276,7 +281,7 @@
               id="arrows--cotillion"
               class="arrows"
               fill="none"
-              stroke="url(#MyGradient)"
+              stroke="url(#skyblue-crimson)"
               stroke-width="2"
               marker-end="url(#arrowhead)"
             >
@@ -288,11 +293,12 @@
               id="arrows--portfolio"
               class="arrows"
               fill="none"
-              stroke="crimson"
+              stroke="url(#MyGradient)"
               stroke-width="2"
               marker-end="url(#arrowhead)"
             >
               <path id="svg-portfolio--svg" />
+              <path id="svg-portfolio--domrect" />
             </g>
 
             <g

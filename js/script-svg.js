@@ -2,10 +2,11 @@
 
 // [x, y]. These ratios must be set up manually based on the images
 const arrowheadRatios = {
-  nav: [0.05, 0.93],
-  player: [0.88, 0.7],
-  sticky: [0.5, 0.18],
-  svg: [0.1, 0.2],
+  nav: [0.04, 0.94],
+  player: [0.89, 0.75],
+  sticky: [0.25, 0.25],
+  svg: [0.24, 0.38],
+  domrect: [0.905, 0.61],
 };
 
 // Set up the element map. That allows to automatically map out all of the
