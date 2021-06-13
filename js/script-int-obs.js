@@ -4,7 +4,7 @@
 const screenshotContainers = document.querySelectorAll('.screenshot-container');
 const descriptions = document.querySelectorAll('.description');
 /*
-Create an object "descriptionList", where keys are the names of the
+Create the "descriptionList" object, where keys are the names of the
 description IDs ("description--cotillion", "description--portfolio", etc.),
 and values are arrays of elements where the class "visible" will be removed or added (in the observerCallback function).
 */

@@ -2,7 +2,7 @@
 
 // [x, y]. These ratios must be set up manually based on the images
 const arrowheadRatios = {
-  nav: [0.04, 0.94],
+  nav: [0.02, 0.84],
   player: [0.89, 0.75],
   sticky: [0.25, 0.25],
   svg: [0.24, 0.38],
@@ -78,6 +78,16 @@ class Arrow {
   }
 
   static getP1P2(p0x, p0y, p3x, p3y) {
+    const distance = Math.round(Math.sqrt((p3x - p0x) ** 2 + (p3y - p0y) ** 2));
+
+    return {
+      p1x: p0x,
+      p1y: p0y + Math.round(distance / 4),
+      p2x: p3x - Math.round(distance / 3),
+      p2y: p3y + Math.round(distance / 15),
+    };
+
+    /*
     const screenHeight = window.innerHeight;
     const p1VerticalOffset = Math.round(screenHeight / 3);
     const p2OffsetRadius = Math.round(screenHeight / 5);
@@ -90,6 +100,8 @@ class Arrow {
       p2x: p3x - p2XOffset,
       p2y: p3y + p2YOffset,
     };
+
+    */
   }
 }
 
