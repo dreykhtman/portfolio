@@ -80,8 +80,6 @@
 .arrows {
   opacity: 0;
   transition: opacity 0.4s;
-  // animation: dash 4s infinite linear;
-  // stroke-dasharray: 10, 7;
 }
 
 .visible {
@@ -100,12 +98,32 @@ span {
     height: 2px;
     top: 96%;
     width: 100%;
-    background-color: skyblue;
 
     left: 0;
     box-shadow: 8px 12px 5px rgba($color: #000, $alpha: 0.15);
     // border: 1px solid blue;
   }
+}
+
+#description--cotillion span::before {
+  background-color: skyblue;
+}
+
+#description--portfolio span::before {
+  background-color: #53d4b3;
+}
+
+#description--github span::before {
+  background-color: #f7bb2d;
+}
+
+//
+// Animations
+//
+
+#arrows--github {
+  animation: dash 4s infinite linear;
+  stroke-dasharray: 10, 7;
 }
 
 @keyframes dash {

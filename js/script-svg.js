@@ -7,6 +7,7 @@ const arrowheadRatios = {
   sticky: [0.25, 0.25],
   svg: [0.24, 0.38],
   domrect: [0.905, 0.61],
+  checkmark: [0.27, 0.11],
 };
 
 // Set up the element map. That allows to automatically map out all of the

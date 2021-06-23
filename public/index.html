@@ -150,7 +150,7 @@
               This app utilizes the GitHub API to search GitHub users and show
               their profile summaries. It's built with React with hooks, the
               Context API and is deployed on Netlify. Take note of this
-              checkmark.
+              <span id="from-github--checkmark">checkmark</span>.
             </p>
           </div>
 
@@ -254,7 +254,7 @@
                 />
               </filter>
               <marker
-                id="arrowhead"
+                id="arrowhead-crimson"
                 viewBox="2 0 13 11"
                 refX="11"
                 refY="5"
@@ -263,27 +263,59 @@
                 orient="auto"
                 fill="none"
                 stroke-width="2"
-                stroke="crimson"
+                stroke="#de2d85"
+              >
+                <path d="M 0 0 L 12 5 L 0 12 z" />
+              </marker>
+              <marker
+                id="arrowhead-purple"
+                viewBox="2 0 13 11"
+                refX="11"
+                refY="5"
+                markerWidth="7"
+                markerHeight="7"
+                orient="auto"
+                fill="none"
+                stroke-width="2"
+                stroke="#955bc2"
+              >
+                <path d="M 0 0 L 12 5 L 0 12 z" />
+              </marker>
+              <marker
+                id="arrowhead-pink"
+                viewBox="2 0 13 11"
+                refX="11"
+                refY="5"
+                markerWidth="7"
+                markerHeight="7"
+                orient="auto"
+                fill="none"
+                stroke-width="2"
+                stroke="#c93ab2"
               >
                 <path d="M 0 0 L 12 5 L 0 12 z" />
               </marker>
               <linearGradient id="skyblue-crimson">
                 <stop offset="0%" stop-color="skyblue" />
-                <stop offset="100%" stop-color="crimson" />
+                <stop offset="100%" stop-color="#de2d85" />
               </linearGradient>
-              <linearGradient id="MyGradient">
-                <stop offset="0%" stop-color="orange" />
-                <stop offset="100%" stop-color="coral" />
+              <linearGradient id="green-purple">
+                <stop offset="0%" stop-color="#53d4b3" />
+                <stop offset="100%" stop-color="#955bc2" />
+              </linearGradient>
+              <linearGradient id="yellow-pink">
+                <stop offset="0%" stop-color="#f7bb2d" />
+                <stop offset="100%" stop-color="#c93ab2" />
               </linearGradient>
             </defs>
             <g
-              filter="url(#shadow)"
               id="arrows--cotillion"
               class="arrows"
               fill="none"
               stroke="url(#skyblue-crimson)"
               stroke-width="2"
-              marker-end="url(#arrowhead)"
+              marker-end="url(#arrowhead-crimson)"
+              filter="url(#shadow)"
             >
               <path id="svg-cotillion--nav" />
               <path id="svg-cotillion--player" />
@@ -293,9 +325,10 @@
               id="arrows--portfolio"
               class="arrows"
               fill="none"
-              stroke="url(#MyGradient)"
+              stroke="url(#green-purple)"
               stroke-width="2"
-              marker-end="url(#arrowhead)"
+              marker-end="url(#arrowhead-purple)"
+              filter="url(#shadow)"
             >
               <path id="svg-portfolio--svg" />
               <path id="svg-portfolio--domrect" />
@@ -327,11 +360,12 @@
               id="arrows--github"
               class="arrows"
               fill="none"
-              stroke=""
-              stroke-width=""
-              marker-end="url(#arrowhead)"
+              stroke="url(#yellow-pink)"
+              stroke-width="2"
+              marker-end="url(#arrowhead-pink)"
+              filter="url(#shadow)"
             >
-              <path />
+              <path id="svg-github--checkmark" />
             </g>
 
             <g
