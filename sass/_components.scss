@@ -6,7 +6,7 @@
 
   padding: 15rem 10rem 0 10rem;
   font-size: 2.2rem;
-  color: darkslategrey;
+  color: $color-text-primary;
 
   &__text {
     position: relative;
@@ -31,6 +31,9 @@
     width: 95%;
     // height: auto;
     // border: 1px solid salmon;
+    border: 5px solid $color-secondary;
+    // padding: 20px;
+    box-shadow: 3px 5px 4px $color-shadow;
   }
 }
 
@@ -47,8 +50,15 @@
 
   & > .links {
     & > a {
-      margin-right: 1rem;
+      margin-right: 1.2rem;
+      color: $color-text-primary;
+      // padding: 2px 4px 4px 4px;
     }
+
+    & > a:visited {
+      color: $color-text-secondary;
+    }
+
     position: relative;
     z-index: 5;
     font-size: 1.8rem;
@@ -62,18 +72,6 @@
 
     position: relative;
     // text-shadow: 8px 10px 3px rgba($color: #000, $alpha: 0.3);
-  }
-}
-
-.github-link {
-  position: relative;
-  display: block;
-  height: 2rem;
-  // width: 100%;
-  z-index: 5;
-
-  & > img {
-    height: 100%;
   }
 }
 
@@ -100,7 +98,7 @@ span {
     width: 100%;
 
     left: 0;
-    box-shadow: 8px 12px 5px rgba($color: #000, $alpha: 0.15);
+    box-shadow: 8px 12px 5px $color-shadow;
     // border: 1px solid blue;
   }
 }
@@ -130,4 +128,11 @@ span {
   to {
     stroke-dashoffset: -102;
   }
+}
+
+.course-projects {
+  height: 20vh;
+  font-size: 3.4rem;
+  color: $color-text-primary;
+  padding: 40rem 0 23rem 0;
 }

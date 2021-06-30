@@ -14,7 +14,7 @@ html {
 
 body {
   box-sizing: border-box;
-  font-family: 'Enriqueta', serif;
+  font-family: "Enriqueta", serif;
   font-weight: 400; }
 
 svg {
@@ -36,7 +36,7 @@ svg {
 
 .container__footer {
   height: 100vh;
-  background-color: #266cbd; }
+  background-color: #ece0d8; }
 
 .descriptions {
   height: 100vh;
@@ -45,7 +45,7 @@ svg {
   top: 0;
   padding: 15rem 10rem 0 10rem;
   font-size: 2.2rem;
-  color: darkslategrey; }
+  color: #3f3f3f; }
   .descriptions__text {
     position: relative;
     z-index: 3; }
@@ -61,7 +61,9 @@ svg {
   padding: 10vh 0 20vh 0;
   margin-bottom: 2px; }
   .screenshot-container > img {
-    width: 95%; }
+    width: 95%;
+    border: 5px solid #f4f1f1;
+    box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.16); }
 
 .description {
   opacity: 0;
@@ -77,20 +79,15 @@ svg {
     font-size: 1.8rem;
     margin-bottom: 4rem; }
     .description > .links > a {
-      margin-right: 1rem; }
+      margin-right: 1.2rem;
+      color: #3f3f3f; }
+    .description > .links > a:visited {
+      color: #807770; }
   .description > p {
     z-index: 3;
     padding-top: 1rem;
     padding-bottom: 2rem;
     position: relative; }
-
-.github-link {
-  position: relative;
-  display: block;
-  height: 2rem;
-  z-index: 5; }
-  .github-link > img {
-    height: 100%; }
 
 .arrows {
   opacity: 0;
@@ -110,7 +107,7 @@ span {
     top: 96%;
     width: 100%;
     left: 0;
-    box-shadow: 8px 12px 5px rgba(0, 0, 0, 0.15); }
+    box-shadow: 8px 12px 5px rgba(0, 0, 0, 0.16); }
 
 #description--cotillion span::before {
   background-color: skyblue; }
@@ -128,3 +125,9 @@ span {
 @keyframes dash {
   to {
     stroke-dashoffset: -102; } }
+
+.course-projects {
+  height: 20vh;
+  font-size: 3.4rem;
+  color: #3f3f3f;
+  padding: 40rem 0 23rem 0; }

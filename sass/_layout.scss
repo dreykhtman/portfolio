@@ -1,18 +1,16 @@
 .container {
   &__about {
     height: 100vh;
-    // background-color: darkslateblue;
-    background-color: rgb(236, 224, 216);
+    background-color: $color-primary;
   }
 
   &__projects {
-    // height: 5000vh;
-    background-color: rgb(236, 224, 216);
+    background-color: $color-primary;
     display: flex;
   }
 
   &__footer {
     height: 100vh;
-    background-color: rgb(38, 108, 189);
+    background-color: $color-primary;
   }
 }

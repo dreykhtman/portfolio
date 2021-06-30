@@ -4,6 +4,24 @@
     url('./font/Enriqueta-Bold.ttf') format('truetype');
 }
 
+//
+// Variables
+//
+
+$color-primary: rgb(236, 224, 216);
+$color-secondary: rgb(244, 241, 241);
+
+$color-shadow: rgba(0, 0, 0, 0.16);
+
+$color-text-primary: rgb(63, 63, 63);
+$color-text-secondary: rgb(128, 119, 112);
+
+$font-primary: 'Enriqueta', serif;
+
+//
+// Reset
+//
+
 *,
 *::before,
 *::after {
@@ -14,7 +32,6 @@
 
 html {
   font-size: 62.5%;
-  // scroll-behavior: smooth;
 
   // @include responsive(bp1500) {
   //   font-size: 56.25%;
@@ -27,9 +44,13 @@ html {
 
 body {
   box-sizing: border-box;
-  font-family: 'Enriqueta', serif;
+  font-family: $font-primary;
   font-weight: 400;
 }
+
+// body::-webkit-scrollbar-button {
+//   display: none;
+// }
 
 svg {
   position: fixed;
