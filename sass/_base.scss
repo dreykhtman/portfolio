@@ -8,14 +8,19 @@
 // Variables
 //
 
+// Colors
 $color-primary: rgb(236, 224, 216);
 $color-secondary: rgb(244, 241, 241);
 
 $color-shadow: rgba(0, 0, 0, 0.16);
 
+$scrollbar-slider: rgb(80, 78, 78);
+$scrollbar-background: rgb(196, 186, 186);
+
 $color-text-primary: rgb(63, 63, 63);
 $color-text-secondary: rgb(128, 119, 112);
 
+// Fonts
 $font-primary: 'Enriqueta', serif;
 
 //
@@ -31,6 +36,8 @@ $font-primary: 'Enriqueta', serif;
 }
 
 html {
+  scrollbar-color: $scrollbar-slider $scrollbar-background;
+
   font-size: 62.5%;
 
   // @include responsive(bp1500) {
@@ -42,15 +49,23 @@ html {
   // }
 }
 
+::-webkit-scrollbar {
+  background: $scrollbar-background;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $scrollbar-slider;
+}
+
+::-webkit-scrollbar-button {
+  background-color: $color-text-secondary;
+}
+
 body {
   box-sizing: border-box;
   font-family: $font-primary;
   font-weight: 400;
 }
-
-// body::-webkit-scrollbar-button {
-//   display: none;
-// }
 
 svg {
   position: fixed;
@@ -62,4 +77,7 @@ svg {
 
   // This fixes a weird glitch in Chrome where SVG elements sometimes appear when they aren't supposed to when I scroll to the top of the site.
   outline: 1px solid transparent;
+}
+
+.scroll {
 }

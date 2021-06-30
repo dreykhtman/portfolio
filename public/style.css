@@ -10,7 +10,17 @@
   box-sizing: inherit; }
 
 html {
+  scrollbar-color: #504e4e #c4baba;
   font-size: 62.5%; }
+
+::-webkit-scrollbar {
+  background: #c4baba; }
+
+::-webkit-scrollbar-thumb {
+  background: #504e4e; }
+
+::-webkit-scrollbar-button {
+  background-color: #807770; }
 
 body {
   box-sizing: border-box;
