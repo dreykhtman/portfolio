@@ -6,7 +6,6 @@
 
   padding: 15rem 10rem 0 10rem;
   font-size: 2.2rem;
-  color: $color-text-primary;
 
   &__text {
     position: relative;
@@ -131,8 +130,20 @@ span {
 }
 
 .course-projects {
-  height: 20vh;
+  height: 23vh;
   font-size: 3.4rem;
-  color: $color-text-primary;
-  padding: 40rem 0 23rem 0;
+
+  padding: 5rem 15rem 23rem 0;
+  align-self: flex-end;
+}
+
+.name {
+  padding: 10rem;
+  font-size: 5rem;
+  height: 80vh;
+}
+
+.about {
+  padding: 10rem;
+  font-size: 3rem;
 }
