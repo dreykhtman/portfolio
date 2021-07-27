@@ -7,13 +7,19 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 9.5rem;
+
+    // border: 1px solid red;
   }
 
   &__projects {
     display: flex;
+
+    // border: 1px solid blueviolet;
   }
 
   &__footer {
     height: 100vh;
+    // border: 1px solid greenyellow;
   }
 }
