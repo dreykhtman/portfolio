@@ -8,18 +8,22 @@
     display: flex;
     flex-direction: column;
     padding: 9.5rem;
-
-    // border: 1px solid red;
   }
 
   &__projects {
     display: flex;
-
-    // border: 1px solid blueviolet;
   }
 
   &__footer {
+    position: relative;
+    z-index: 3;
     height: 100vh;
-    // border: 1px solid greenyellow;
+    padding: 20rem 0 20rem 0;
+    font-size: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 }

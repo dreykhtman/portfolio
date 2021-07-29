@@ -49,7 +49,15 @@ svg {
   .container__projects {
     display: flex; }
   .container__footer {
-    height: 100vh; }
+    position: relative;
+    z-index: 3;
+    height: 100vh;
+    padding: 20rem 0 20rem 0;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; }
 
 .name {
   font-size: 5rem;
@@ -118,7 +126,7 @@ span {
 .project-header {
   position: relative;
   font-size: 3rem;
-  padding: 3rem 7rem 20rem 0;
+  padding: 3rem 8.5rem 13rem 0;
   text-align: right;
   display: flex;
   flex-direction: column; }
@@ -144,6 +152,34 @@ span {
     width: 95%;
     border: 5px solid #f4f1f1;
     box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.16); }
+
+#btn-scroll {
+  background-color: #3f3f3f;
+  color: #ece0d8;
+  width: max-content;
+  border: none;
+  padding: 1rem 2rem 1rem 2rem;
+  font-size: 2rem; }
+  #btn-scroll > pre {
+    font-family: "Enriqueta", serif; }
+
+#contact > p {
+  display: inline; }
+
+#contact > a {
+  color: #3f3f3f; }
+
+#contact > a:visited {
+  color: #807770; }
+
+#contact #btn-email {
+  font-family: "Enriqueta", serif;
+  font-size: calc(3rem - 15%);
+  padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+  border-radius: 0;
+  color: #3f3f3f;
+  background-color: #f4f1f1;
+  border: 3px solid #807770; }
 
 .arrows {
   opacity: 0;

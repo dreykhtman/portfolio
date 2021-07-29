@@ -247,7 +247,7 @@
 
           <svg>
             <defs>
-              <filter id="shadow">
+              <filter id="shadow" filterUnits="userSpaceOnUse">
                 <feDropShadow
                   dx="8"
                   dy="15"
@@ -504,9 +504,15 @@
       </div>
 
       <div class="container__footer">
-        <h1>FOOTER</h1>
-        <p>Contact information</p>
-        <p>technologies</p>
+        <h2>Thank you for taking a look.</h2>
+        <div id="contact">
+          <p>You can reach me at</p>
+          <button id="btn-email">click to show email</button>
+        </div>
+
+        <button id="btn-scroll">
+          <pre>&#8593;     Back to top     &#8593;</pre>
+        </button>
       </div>
     </div>
   </body>
