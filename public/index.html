@@ -11,15 +11,15 @@
   </head>
   <body>
     <div class="container">
-      <div class="container__about">
+      <header class="container__about">
         <div class="name"><h1>Dima Reykhtman</h1></div>
         <div class="title">
           <h2>Web Development Portfolio</h2>
         </div>
-      </div>
+      </header>
 
-      <div class="container__projects">
-        <div class="descriptions">
+      <main class="container__projects">
+        <section class="descriptions">
           <div class="description" id="description--cotillion">
             <h2 class="project-name">cotillion.band</h2>
             <div class="links">
@@ -46,7 +46,7 @@
               <span id="from-cotillion--nav">navbar</span>.
               <span id="from-cotillion--sticky">Sticky positioning</span> mixes
               up fixed and scrolling elements while persisting the page flow.
-              Embedded
+              The embedded
               <span id="from-cotillion--player">Bandcamp player</span> allows
               visitors to enjoy the music without having to leave the site.
             </p>
@@ -78,7 +78,7 @@
               cubic Bézier curve commands. The DOMRect object is used to find
               the starting and ending
               <span id="from-portfolio--domrect">coordinates</span> of the
-              arrows. The trusty Intersection API returns to switch the
+              arrows. The trusty Intersection Observer API returns to switch the
               descriptions based on the screenshot in view.
             </p>
           </div>
@@ -168,7 +168,7 @@
               >
             </div>
             <p>
-              As the name says, this is an IT department log app. It's built
+              As the name says, this is an IT department logging app. It's built
               with React and Redux. Styling was done with the Materizlize front
               end framework, and the JSON Server library was used for a mock
               back end API.
@@ -192,7 +192,7 @@
               >
             </div>
             <p>
-              You wouldn't believe that this site was built with pure CSS and
+              You wouldn't believe that this site was built with only CSS and
               HTML. There's no JavaSript involved. Instead, it's based on a
               layout using floats and incorporates plenty of advanced CSS
               animations and effects.
@@ -280,7 +280,7 @@
                 orient="auto"
                 fill="none"
                 stroke-width="2"
-                stroke="#955bc2"
+                stroke="#673191"
               >
                 <path d="M 0 0 L 12 5 L 0 12 z" />
               </marker>
@@ -304,7 +304,7 @@
               </linearGradient>
               <linearGradient id="green-purple">
                 <stop offset="0%" stop-color="#53d4b3" />
-                <stop offset="100%" stop-color="#955bc2" />
+                <stop offset="100%" stop-color="#673191" />
               </linearGradient>
               <linearGradient id="yellow-pink">
                 <stop offset="0%" stop-color="#f7bb2d" />
@@ -415,9 +415,9 @@
               <path />
             </g>
           </svg>
-        </div>
+        </section>
 
-        <div class="screenshots">
+        <section class="screenshots">
           <div class="project-header"><h2>Original Projects</h2></div>
 
           <div
@@ -500,20 +500,20 @@
               alt="Nexter website screenshot"
             />
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
 
-      <div class="container__footer">
+      <footer class="container__footer">
         <h2>Thank you for taking a look.</h2>
         <div id="contact">
           <p>You can reach me at</p>
-          <button id="btn-email">click to show email</button>
+          <button id="btn-email">click to show the email</button>
         </div>
 
         <button id="btn-scroll">
           <pre>&#8593;     Back to top     &#8593;</pre>
         </button>
-      </div>
+      </footer>
     </div>
   </body>
 </html>

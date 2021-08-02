@@ -5,9 +5,9 @@ const arrowheadRatios = {
   nav: [0.02, 0.84],
   player: [0.89, 0.75],
   sticky: [0.25, 0.25],
-  svg: [0.24, 0.38],
-  domrect: [0.905, 0.61],
-  checkmark: [0.27, 0.11],
+  svg: [0.24, 0.71],
+  domrect: [0.888, 0.631],
+  checkmark: [0.27, 0.12],
 };
 
 // Set up the element map. That allows to automatically map out all of the

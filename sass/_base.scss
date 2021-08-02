@@ -61,6 +61,10 @@ html {
   background-color: $color-text-secondary;
 }
 
+::selection {
+  background-color: rgba(163, 183, 243, 0.75);
+}
+
 body {
   box-sizing: border-box;
   font-family: $font-primary;
