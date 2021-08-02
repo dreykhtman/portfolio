@@ -134,6 +134,7 @@ span {
 }
 
 #btn-scroll {
+  cursor: pointer;
   background-color: $color-text-primary;
   color: $color-primary;
   width: max-content;
@@ -159,6 +160,7 @@ span {
   }
 
   #btn-email {
+    cursor: pointer;
     font-family: $font-primary;
     font-size: calc(3rem - 15%);
     padding: 0.8rem 1.2rem 0.8rem 1.2rem;

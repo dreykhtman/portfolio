@@ -4,7 +4,12 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "watch": "node-sass -w sass/main.scss public/style.css"
+    "watch": "node-sass -w sass/main.scss public/style.css",
+    "compile": "node-sass sass/main.scss css/style.compile.css",
+    "prefix": "postcss --use autoprefixer -b 'last 10 versions' css/style.compile.css -o css/style.prefix.css",
+    "minify:css": "node-sass css/style.prefix.css public/style.css --output-style compressed",
+    "minify:js": "terser js/helper-functions.js js/script-int-obs.js js/script-svg.js -o public/script.js",
+    "build": "npm-run-all compile prefix minify:css minify:js"
   },
   "repository": {
     "type": "git",
@@ -17,12 +22,17 @@
   },
   "homepage": "https://github.com/dreykhtman/simple-starter#readme",
   "devDependencies": {
+    "autoprefixer": "^10.3.1",
     "eslint": "^7.22.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
     "node-sass": "^5.0.0",
-    "prettier": "^2.2.1"
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "prettier": "^2.2.1",
+    "terser": "^5.7.1"
   }
 }
