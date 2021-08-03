@@ -1,6 +1,6 @@
 # My Web Development Portolio
 
-## What I used:
+## Technologies used:
 
 - HTML
 - SCSS
