@@ -9,6 +9,9 @@
   padding: 0;
   box-sizing: inherit; }
 
+:focus {
+  outline: #f06464 solid 3px; }
+
 html {
   scrollbar-color: #504e4e #c4baba;
   font-size: 62.5%; }
