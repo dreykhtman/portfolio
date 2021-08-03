@@ -87,22 +87,6 @@ class Arrow {
       p2x: p3x - Math.round(distance / 3),
       p2y: p3y + Math.round(distance / 15),
     };
-
-    /*
-    const screenHeight = window.innerHeight;
-    const p1VerticalOffset = Math.round(screenHeight / 3);
-    const p2OffsetRadius = Math.round(screenHeight / 5);
-    const p2XOffset = p2OffsetRadius * Math.round(Math.cos(31));
-    const p2YOffset = p2OffsetRadius * Math.round(Math.sin(31));
-
-    return {
-      p1x: p0x,
-      p1y: p0y + p1VerticalOffset,
-      p2x: p3x - p2XOffset,
-      p2y: p3y + p2YOffset,
-    };
-
-    */
   }
 }
 
