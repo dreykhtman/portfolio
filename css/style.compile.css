@@ -9,6 +9,9 @@
   padding: 0;
   box-sizing: inherit; }
 
+:focus {
+  outline: #f06464 solid 3px; }
+
 html {
   scrollbar-color: #504e4e #c4baba;
   font-size: 62.5%; }
@@ -160,6 +163,7 @@ span {
     box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.16); }
 
 #btn-scroll {
+  cursor: pointer;
   background-color: #3f3f3f;
   color: #ece0d8;
   width: max-content;
@@ -179,6 +183,7 @@ span {
   color: #807770; }
 
 #contact #btn-email {
+  cursor: pointer;
   font-family: "Enriqueta", serif;
   font-size: calc(3rem - 15%);
   padding: 0.8rem 1.2rem 0.8rem 1.2rem;

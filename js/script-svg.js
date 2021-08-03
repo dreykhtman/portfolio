@@ -58,10 +58,10 @@ class Arrow {
 
   static getP0(fromElement) {
     let { right, left, bottom } = fromElement.getBoundingClientRect();
-    [right, left, bottom] = [right, left, bottom].map((num) => Math.round(num));
+    [right, left, bottom] = [right, left, bottom].map((num) => Math.trunc(num));
 
     return {
-      p0x: Math.round((left + right) / 2),
+      p0x: Math.trunc((left + right) / 2),
       p0y: bottom,
     };
   }
@@ -69,23 +69,23 @@ class Arrow {
   static getP3(toImage, xRatio, yRatio) {
     let { right, left, top, bottom } = toImage.getBoundingClientRect();
     [right, left, top, bottom] = [right, left, top, bottom].map((num) =>
-      Math.round(num)
+      Math.trunc(num)
     );
 
-    const p3x = Math.round((right - left) * xRatio + left);
-    const p3y = Math.round((bottom - top) * yRatio + top);
+    const p3x = Math.trunc((right - left) * xRatio + left);
+    const p3y = Math.trunc((bottom - top) * yRatio + top);
 
     return { p3x, p3y };
   }
 
   static getP1P2(p0x, p0y, p3x, p3y) {
-    const distance = Math.round(Math.sqrt((p3x - p0x) ** 2 + (p3y - p0y) ** 2));
+    const distance = Math.trunc(Math.sqrt((p3x - p0x) ** 2 + (p3y - p0y) ** 2));
 
     return {
       p1x: p0x,
-      p1y: p0y + Math.round(distance / 4),
-      p2x: p3x - Math.round(distance / 3),
-      p2y: p3y + Math.round(distance / 15),
+      p1y: p0y + Math.trunc(distance / 4),
+      p2x: p3x - Math.trunc(distance / 3),
+      p2y: p3y + Math.trunc(distance / 15),
     };
   }
 }
