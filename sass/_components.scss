@@ -1,24 +1,48 @@
 .name {
   font-size: 5rem;
-  height: 69vh;
+
+  @include responsive(bp-600) {
+    font-size: 4rem;
+  }
+
+  @include responsive(bp-370) {
+    font-size: 3rem;
+  }
 }
 
 .title {
   font-size: 3rem;
+  padding-bottom: 2rem;
+
+  @include responsive(bp-600) {
+    font-size: 2.4rem;
+  }
 }
 
 .descriptions {
-  height: 100vh;
   width: 33vw;
+  height: 100vh;
   position: sticky;
   top: 0;
 
-  padding: 18vh 1vw 0 4vw;
+  padding: 17rem 0 0 1.5vw;
   font-size: 2.2rem;
 
-  &__text {
-    position: relative;
-    z-index: 3;
+  @include responsive(bp-1000) {
+    width: 40vw;
+  }
+
+  @include responsive(bp-800) {
+    // top: 60vh;
+    width: 100vw;
+    height: 40vh;
+    padding: 4rem 1rem 0 1rem;
+    z-index: 60;
+    background: linear-gradient(
+      to bottom,
+      $color-primary 90%,
+      rgba($color-primary, 0)
+    );
   }
 }
 
@@ -115,12 +139,20 @@ span {
   flex-direction: column;
   padding-top: 15vh;
   width: 67vw;
+
+  @include responsive(bp-1000) {
+    width: 60vw;
+  }
+
+  @include responsive(bp-800) {
+    width: 100vw;
+  }
 }
 
 .screenshot-container {
   display: flex;
   justify-content: center;
-  padding: 10vh 2rem 20vh 0;
+  padding: 10vh 1.5vw 20vh 0;
 
   margin-bottom: 2px;
 
@@ -180,9 +212,9 @@ span {
   opacity: 1;
 }
 
-//
-// Animations
-//
+//////////////////////
+//    Animations    //
+//////////////////////
 
 #arrows--github {
   animation: dash 4s infinite linear;

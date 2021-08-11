@@ -7,11 +7,22 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
     padding: 9.5rem;
+
+    @include responsive(bp-600) {
+      padding: 8rem 2rem 8rem 2rem;
+    }
   }
 
   &__projects {
     display: flex;
+
+    @include responsive(bp-800) {
+      display: block;
+    }
   }
 
   &__footer {

@@ -4,9 +4,9 @@
     url('./font/Enriqueta-Bold.ttf') format('truetype');
 }
 
-//
-// Variables
-//
+/////////////////////
+//    Variables    //
+/////////////////////
 
 // Colors
 $color-primary: rgb(236, 224, 216);
@@ -45,15 +45,15 @@ $font-primary: 'Enriqueta', serif;
 html {
   scrollbar-color: $scrollbar-slider $scrollbar-background;
 
-  font-size: 62.5%;
+  font-size: 62.5%; // 10/0.16 | 1rem = 10px
 
-  // @include responsive(bp1500) {
-  //   font-size: 56.25%;
-  // }
+  @include responsive(bp-1400) {
+    font-size: 56.25%; // 9px
+  }
 
-  // @include responsive(bp1300) {
-  //   font-size: 50%;
-  // }
+  @include responsive(bp-1200) {
+    font-size: 50%; // 8px
+  }
 }
 
 ::-webkit-scrollbar {

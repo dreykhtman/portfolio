@@ -1,0 +1,39 @@
+// em = px / 16
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == bp-1400 {
+    @media only screen and (max-width: 87.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == bp-1200 {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == bp-1000 {
+    @media only screen and (max-width: 62.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == bp-800 {
+    @media only screen and (max-width: 50em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == bp-600 {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == bp-370 {
+    @media only screen and (max-width: 23.125em) {
+      @content;
+    }
+  }
+}
