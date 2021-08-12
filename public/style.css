@@ -68,7 +68,7 @@ svg {
     padding: 9.5rem; }
     @media only screen and (max-width: 37.5em) {
       .container__about {
-        padding: 8rem 2rem 8rem 2rem; } }
+        padding: 14rem 2rem 14rem 2rem; } }
   .container__projects {
     display: flex; }
     @media only screen and (max-width: 37.5em) {
