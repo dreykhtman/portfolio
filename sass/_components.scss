@@ -28,9 +28,14 @@
   padding: 17rem 0 0 1.5vw;
   font-size: 2.2rem;
 
+  @include responsive(bp-1400) {
+    padding: 9rem 0 0 1.5vw;
+  }
+
   @include responsive(bp-1000) {
+    padding: 3rem 0 0 1.5vw;
     width: 40vw;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   @include responsive(bp-600) {
@@ -152,10 +157,6 @@ span {
       display: none;
     }
   }
-
-  // @include responsive(bp-600) {
-  //   padding: 3rem 8.5rem 70vh 0;
-  // }
 }
 
 .screenshots {

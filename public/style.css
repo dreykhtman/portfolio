@@ -84,9 +84,13 @@ svg {
     flex-direction: column;
     justify-content: space-between;
     align-items: center; }
+    @media only screen and (max-width: 62.5em) {
+      .container__footer {
+        padding: 8rem 2rem 8rem 2rem;
+        font-size: 2.2rem; } }
     @media only screen and (max-width: 37.5em) {
       .container__footer {
-        padding: 20rem 2rem 20rem 2rem;
+        padding: 18rem 2rem 18rem 2rem;
         font-size: 2.2rem; } }
     @media only screen and (max-width: 23.125em) {
       .container__footer {
@@ -116,10 +120,14 @@ svg {
   top: 0;
   padding: 17rem 0 0 1.5vw;
   font-size: 2.2rem; }
+  @media only screen and (max-width: 87.5em) {
+    .descriptions {
+      padding: 9rem 0 0 1.5vw; } }
   @media only screen and (max-width: 62.5em) {
     .descriptions {
+      padding: 3rem 0 0 1.5vw;
       width: 40vw;
-      font-size: 2rem; } }
+      font-size: 1.5rem; } }
   @media only screen and (max-width: 37.5em) {
     .descriptions {
       width: 100vw;
