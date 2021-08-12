@@ -15,7 +15,7 @@
 html {
   scrollbar-color: #504e4e #c4baba;
   font-size: 62.5%; }
-  @media only screen and (max-width: 87.5em) {
+  @media only screen and (max-width: 90em) {
     html {
       font-size: 56.25%; } }
   @media only screen and (max-width: 75em) {
@@ -120,9 +120,6 @@ svg {
   top: 0;
   padding: 17rem 0 0 1.5vw;
   font-size: 2.2rem; }
-  @media only screen and (max-width: 87.5em) {
-    .descriptions {
-      padding: 9rem 0 0 1.5vw; } }
   @media only screen and (max-width: 62.5em) {
     .descriptions {
       padding: 3rem 0 0 1.5vw;

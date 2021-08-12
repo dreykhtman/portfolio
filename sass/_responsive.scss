@@ -1,8 +1,9 @@
 // em = px / 16
 
 @mixin responsive($breakpoint) {
-  @if $breakpoint == bp-1400 {
-    @media only screen and (max-width: 87.5em) {
+  @if $breakpoint == largest {
+    // 1440px
+    @media only screen and (max-width: 90em) {
       @content;
     }
   }

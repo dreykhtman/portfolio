@@ -47,7 +47,7 @@ html {
 
   font-size: 62.5%; // 10/0.16 | 1rem = 10px
 
-  @include responsive(bp-1400) {
+  @include responsive(largest) {
     font-size: 56.25%; // 9px
   }
 
