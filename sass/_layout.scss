@@ -20,14 +20,14 @@
   &__projects {
     display: flex;
 
-    @include responsive(bp-800) {
+    @include responsive(bp-600) {
       display: block;
     }
   }
 
   &__footer {
     position: relative;
-    z-index: 3;
+    z-index: 5;
     height: 100vh;
     padding: 20rem 0 20rem 0;
     font-size: 3rem;
@@ -36,5 +36,15 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    @include responsive(bp-600) {
+      padding: 20rem 2rem 20rem 2rem;
+      font-size: 2.2rem;
+    }
+
+    @include responsive(bp-370) {
+      padding: 20rem 2rem 20rem 2rem;
+      font-size: 1.8rem;
+    }
   }
 }

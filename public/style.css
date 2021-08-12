@@ -21,6 +21,9 @@ html {
   @media only screen and (max-width: 75em) {
     html {
       font-size: 50%; } }
+  @media only screen and (max-width: 23.125em) {
+    html {
+      font-size: 43.75%; } }
 
 ::-webkit-scrollbar {
   background: #c4baba; }
@@ -48,6 +51,9 @@ svg {
   height: 100%;
   width: 100%;
   outline: 1px solid transparent; }
+  @media only screen and (max-width: 37.5em) {
+    svg {
+      display: none; } }
 
 .container {
   background-color: #ece0d8; }
@@ -65,12 +71,12 @@ svg {
         padding: 8rem 2rem 8rem 2rem; } }
   .container__projects {
     display: flex; }
-    @media only screen and (max-width: 50em) {
+    @media only screen and (max-width: 37.5em) {
       .container__projects {
         display: block; } }
   .container__footer {
     position: relative;
-    z-index: 3;
+    z-index: 5;
     height: 100vh;
     padding: 20rem 0 20rem 0;
     font-size: 3rem;
@@ -78,6 +84,14 @@ svg {
     flex-direction: column;
     justify-content: space-between;
     align-items: center; }
+    @media only screen and (max-width: 37.5em) {
+      .container__footer {
+        padding: 20rem 2rem 20rem 2rem;
+        font-size: 2.2rem; } }
+    @media only screen and (max-width: 23.125em) {
+      .container__footer {
+        padding: 20rem 2rem 20rem 2rem;
+        font-size: 1.8rem; } }
 
 .name {
   font-size: 5rem; }
@@ -104,25 +118,31 @@ svg {
   font-size: 2.2rem; }
   @media only screen and (max-width: 62.5em) {
     .descriptions {
-      width: 40vw; } }
-  @media only screen and (max-width: 50em) {
+      width: 40vw;
+      font-size: 2rem; } }
+  @media only screen and (max-width: 37.5em) {
     .descriptions {
       width: 100vw;
       height: 40vh;
-      padding: 4rem 1rem 0 1rem;
-      z-index: 60;
-      background: linear-gradient(to bottom, #ece0d8 90%, rgba(236, 224, 216, 0)); } }
+      padding-top: 0; } }
 
 .description {
   opacity: 0;
   height: 0;
   transition: opacity 0.4s;
   padding: 0rem 5rem 0 5rem; }
+  @media only screen and (max-width: 37.5em) {
+    .description {
+      padding: 0; } }
   .description .project-name {
     padding-bottom: 0.5rem;
     font-size: 3.8rem;
     z-index: 3;
     position: relative; }
+    @media only screen and (max-width: 37.5em) {
+      .description .project-name {
+        padding: 3rem 5rem 1.5rem 5rem;
+        background-color: #ece0d8; } }
   .description > .links {
     position: relative;
     z-index: 5;
@@ -133,11 +153,20 @@ svg {
       color: #3f3f3f; }
     .description > .links > a:visited {
       color: #807770; }
+    @media only screen and (max-width: 37.5em) {
+      .description > .links {
+        background-color: #ece0d8;
+        padding: 0 5rem 5rem 5rem;
+        margin: 0; } }
   .description > p {
-    z-index: 3;
+    position: relative;
+    z-index: 4;
     padding-top: 1rem;
-    padding-bottom: 2rem;
-    position: relative; }
+    padding-bottom: 2rem; }
+    @media only screen and (max-width: 37.5em) {
+      .description > p {
+        background-color: #ece0d8;
+        padding: 0 5rem 5rem 5rem; } }
 
 #description--cotillion span::before {
   background-color: skyblue; }
@@ -160,9 +189,11 @@ span {
     width: 100%;
     left: 0;
     box-shadow: 8px 12px 5px rgba(0, 0, 0, 0.16); }
+    @media only screen and (max-width: 37.5em) {
+      span::before {
+        display: none; } }
 
 .project-header {
-  position: relative;
   font-size: 3rem;
   padding: 3rem 8.5rem 15rem 0;
   text-align: right;
@@ -175,6 +206,9 @@ span {
     clip-path: polygon(100% 0, 0 0, 100% 100%);
     height: 4px;
     width: 100%; }
+    @media only screen and (max-width: 62.5em) {
+      .project-header::after {
+        display: none; } }
 
 .screenshots {
   display: flex;
@@ -184,9 +218,10 @@ span {
   @media only screen and (max-width: 62.5em) {
     .screenshots {
       width: 60vw; } }
-  @media only screen and (max-width: 50em) {
+  @media only screen and (max-width: 37.5em) {
     .screenshots {
-      width: 100vw; } }
+      width: 100vw;
+      padding-top: 0; } }
 
 .screenshot-container {
   display: flex;
@@ -209,24 +244,23 @@ span {
   #btn-scroll > pre {
     font-family: "Enriqueta", serif; }
 
-#contact > p {
-  display: inline; }
-
-#contact > a {
-  color: #3f3f3f; }
-
-#contact > a:visited {
-  color: #807770; }
-
-#contact #btn-email {
-  cursor: pointer;
-  font-family: "Enriqueta", serif;
-  font-size: calc(3rem - 15%);
-  padding: 0.8rem 1.2rem 0.8rem 1.2rem;
-  border-radius: 0;
-  color: #3f3f3f;
-  background-color: #f4f1f1;
-  border: 3px solid #807770; }
+#contact {
+  text-align: center; }
+  #contact > p {
+    display: inline; }
+  #contact > a {
+    color: #3f3f3f; }
+  #contact > a:visited {
+    color: #807770; }
+  #contact #btn-email {
+    cursor: pointer;
+    font-family: "Enriqueta", serif;
+    font-size: calc(3rem - 15%);
+    padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+    border-radius: 0;
+    color: #3f3f3f;
+    background-color: #f4f1f1;
+    border: 3px solid #807770; }
 
 .arrows {
   opacity: 0;

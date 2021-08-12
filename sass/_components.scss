@@ -30,19 +30,13 @@
 
   @include responsive(bp-1000) {
     width: 40vw;
+    font-size: 2rem;
   }
 
-  @include responsive(bp-800) {
-    // top: 60vh;
+  @include responsive(bp-600) {
     width: 100vw;
     height: 40vh;
-    padding: 4rem 1rem 0 1rem;
-    z-index: 60;
-    background: linear-gradient(
-      to bottom,
-      $color-primary 90%,
-      rgba($color-primary, 0)
-    );
+    padding-top: 0;
   }
 }
 
@@ -52,11 +46,20 @@
   transition: opacity 0.4s;
   padding: 0rem 5rem 0 5rem;
 
+  @include responsive(bp-600) {
+    padding: 0;
+  }
+
   .project-name {
     padding-bottom: 0.5rem;
     font-size: 3.8rem;
     z-index: 3;
     position: relative;
+
+    @include responsive(bp-600) {
+      padding: 3rem 5rem 1.5rem 5rem;
+      background-color: $color-primary;
+    }
   }
 
   & > .links {
@@ -73,14 +76,24 @@
     z-index: 5;
     font-size: 1.8rem;
     margin-bottom: 4rem;
+
+    @include responsive(bp-600) {
+      background-color: $color-primary;
+      padding: 0 5rem 5rem 5rem;
+      margin: 0;
+    }
   }
 
   & > p {
-    z-index: 3;
+    position: relative;
+    z-index: 4;
     padding-top: 1rem;
     padding-bottom: 2rem;
 
-    position: relative;
+    @include responsive(bp-600) {
+      background-color: $color-primary;
+      padding: 0 5rem 5rem 5rem;
+    }
   }
 }
 
@@ -110,11 +123,14 @@ span {
 
     left: 0;
     box-shadow: 8px 12px 5px $color-shadow;
+
+    @include responsive(bp-600) {
+      display: none;
+    }
   }
 }
 
 .project-header {
-  position: relative;
   font-size: 3rem;
 
   padding: 3rem 8.5rem 15rem 0;
@@ -131,7 +147,15 @@ span {
     clip-path: polygon(100% 0, 0 0, 100% 100%);
     height: 4px;
     width: 100%;
+
+    @include responsive(bp-1000) {
+      display: none;
+    }
   }
+
+  // @include responsive(bp-600) {
+  //   padding: 3rem 8.5rem 70vh 0;
+  // }
 }
 
 .screenshots {
@@ -144,8 +168,9 @@ span {
     width: 60vw;
   }
 
-  @include responsive(bp-800) {
+  @include responsive(bp-600) {
     width: 100vw;
+    padding-top: 0;
   }
 }
 
@@ -158,9 +183,7 @@ span {
 
   & > img {
     width: 95%;
-
     border: 5px solid $color-secondary;
-
     box-shadow: 3px 5px 4px $color-shadow;
   }
 }
@@ -179,6 +202,8 @@ span {
 }
 
 #contact {
+  text-align: center;
+
   & > p {
     display: inline;
   }
