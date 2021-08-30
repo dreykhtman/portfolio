@@ -35,7 +35,7 @@
   @include responsive(bp-1000) {
     padding: 3rem 0 0 1.5vw;
     width: 40vw;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   @include responsive(bp-600) {
@@ -61,7 +61,12 @@
     z-index: 3;
     position: relative;
 
+    @include responsive(bp-1000) {
+      font-size: 3rem;
+    }
+
     @include responsive(bp-600) {
+      font-size: 2.8rem;
       padding: 3rem 5rem 1.5rem 5rem;
       background-color: $color-primary;
     }
