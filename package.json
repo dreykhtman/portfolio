@@ -1,5 +1,5 @@
 {
-  "name": "simple-starter",
+  "name": "portfolio",
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dreykhtman/simple-starter.git"
+    "url": "https://github.com/dreykhtman/portfolio.git"
   },
-  "author": "",
+  "author": "Dima Reykhtman",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dreykhtman/simple-starter/issues"
+    "url": "https://github.com/dreykhtman/portfolio/issues"
   },
-  "homepage": "https://github.com/dreykhtman/simple-starter#readme",
+  "homepage": "https://github.com/dreykhtman/portfolio#readme",
   "devDependencies": {
     "autoprefixer": "^10.3.1",
     "eslint": "^7.22.0",
